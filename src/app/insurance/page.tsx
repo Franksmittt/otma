@@ -83,7 +83,7 @@ export default function InsurancePage() {
               <div key={q}>
                 <dt className="font-medium text-zinc-900 dark:text-white">{q}</dt>
                 <dd className="mt-1 text-zinc-600 dark:text-zinc-400">{a}</dd>
-              </dl>
+              </div>
             ))}
           </dl>
         </section>
