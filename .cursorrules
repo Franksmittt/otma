@@ -1,0 +1,35 @@
+# On The Move Again – Cursor AI project rules
+
+This project follows the Next.js SEO Strategy For Furniture Removal and PROJECT-SUMMARY.txt. Preserve SEO, performance, and architecture when editing or adding code.
+
+## Architecture
+- Use the Next.js App Router (app directory). All new routes and components live under src/app or src/components.
+- Prefer React Server Components. Use "use client" only for components that need browser APIs, interactivity, or client state.
+- Keep the layout structure: MovingCompanyJsonLd in layout; Header, main, Footer, StickyCTA.
+
+## SEO and metadata
+- Every page must set its own metadata (export const metadata or generateMetadata) with title and description.
+- Every page must set alternates.canonical to its full URL (e.g. SITE.url + path). Do not leave canonical only on the root layout for inner pages.
+- Use generateMetadata for dynamic routes (/blog/[slug], /movers-in/[slug]) and include canonical, openGraph.url, and optional twitter.
+- Use semantic HTML5: <article> for blog posts, <dl>/<dt>/<dd> for FAQs, one <h1> per page, logical heading order.
+- When adding new service or location pages, add them to app/sitemap.ts and ensure they have unique title, description, and canonical.
+
+## Structured data (JSON-LD)
+- MovingCompany schema in layout (JsonLd.tsx): keep address, geo, areaServed (with Place name + url to /movers-in/[slug]), openingHours, aggregateRating.
+- FAQPage schema: use on /faq and on key service pages (e.g. insurance, house-removals) with 2–4 questions. Match visible FAQ content to schema.
+- BlogPosting schema on every blog post: headline, description, datePublished, author/publisher Organization, mainEntityOfPage url.
+
+## Styling and UI
+- Use Tailwind CSS v4 for all styling. No inline style or global CSS except design tokens in globals.css.
+- Prefer accessible, WCAG-friendly patterns (focus states, contrast, semantic markup). Sky blue accent (sky-600, sky-700) is the brand; keep contrast safe.
+
+## Performance and assets
+- Use next/image for all images. Provide width/height or fill, and always set a descriptive alt for SEO and accessibility.
+- When adding gallery or marketing images, use descriptive alt text (e.g. "OTMA moving truck at Joanique Eco Park").
+
+## Config and content
+- Site-wide config: src/lib/site-config.ts (SITE, SUBURBS, NAV). Suburb copy: src/lib/suburb-content.ts. Blog: src/lib/blog-posts.ts.
+- Redirects: next.config.ts handles /movers-in-{suburb} → /movers-in/{suburb}. Add new suburbs to SUBURBS and redirects if adding locations.
+
+## NAP and citations
+- NAP (Name, Address, Phone) must stay consistent with SITE in site-config and in MovingCompany JSON-LD. When updating contact details, update both.

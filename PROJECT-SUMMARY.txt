@@ -1,0 +1,325 @@
+================================================================================
+ON THE MOVE AGAIN (OTMA) – PROJECT SUMMARY
+================================================================================
+Generated: 2026. Full overview of the site: pages, blog, SEO, and structure.
+Strategy reference: Next.js SEO Strategy For Furniture Removal.txt (macro strategy,
+10-pillar content, technical SEO, competitor positioning, NAP/citations).
+================================================================================
+
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+• Name:          On The Move Again (OTMA)
+• Purpose:       Marketing website for an Alberton-based furniture removals and
+                 relocation company. Emphasis on secure, monitored moves (GPS
+                 tracking), PMA & AMOSA accreditation, and full-service relocation.
+• Base URL:      https://otma.co.za
+• Tech stack:    Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4,
+                 Geist font. No separate backend; quote/track are front-end flows.
+• Key differentiator: “Smile! You’re on Camera!” – live GPS and in-transit
+                 monitoring; Goods-in-Transit insurance; Joanique Eco Park base.
+
+
+2. SITE STRUCTURE & ROUTES
+--------------------------------------------------------------------------------
+All routes are under src/app. Layout (Header, Footer, StickyCTA, MovingCompany
+JSON-LD) wraps every page.
+
+ROUTE                              DESCRIPTION
+--------------------------------------------------------------------------------
+/                                 Homepage
+/about                             About the company
+/contact                           Contact form, map, NAP
+/quote                             Get a quote – step 1 (move details)
+/quote/inventory                   Quote – step 2 (inventory)
+/quote/contact                     Quote – step 3 (contact details)
+/track                             Track your move (client portal entry)
+/insurance                         Asset protection & insurance
+/partners                          Partner / B2B enquiries
+/faq                               Frequently asked questions
+/privacy                            Privacy policy
+
+/services                          Services index (all services)
+/services/house-removals           House & office removals
+/services/long-distance            Long-distance moves
+/services/packing                  Packing & unpacking
+/services/cleaning                 Post-move cleaning
+/services/storage                  Storage
+/services/crate-rentals            Crate rentals
+/services/pet-relocation           Pet relocation
+/services/vehicle-transport        Vehicle transport
+
+/blog                              Blog index (list of posts)
+/blog/[slug]                       Individual blog post (10 posts; slugs below)
+
+/movers-in/[slug]                  Suburb/location pages (6 suburbs)
+                                  Slugs: alberton, meyersdal, brackenhurst,
+                                  new-redruth, randhart, alberante.
+
+
+3. PAGES (DETAILED)
+--------------------------------------------------------------------------------
+
+HOME (/)
+  Hero (split layout: headline + CTAs left, trust card right), “Smile! You’re
+  on Camera!” section, Full-Service Relocation (4 service cards with icons),
+  suburb SEO links, gallery (2×4, 8 images), final CTA. Sky blue accent; WCAG-
+  friendly contrast.
+
+ABOUT (/about)
+  Company story, values, NAP (phone, email). Internal links to quote and contact.
+
+CONTACT (/contact)
+  Contact form (name, phone, email, subject, message; thank-you state only),
+  contact cards (Call, WhatsApp, Email, Visit), Google Maps iframe, CTA.
+
+QUOTE (3 steps)
+  • /quote – Move details (origin, destination, date, etc.), phone/WhatsApp links.
+  • /quote/inventory – Inventory text area, “Next: Contact details” submit.
+  • /quote/contact – Contact form for quote; “Back to inventory” link.
+  No server-side submission; form data can be extended later.
+
+TRACK (/track)
+  Entry point for “Track your move” (client portal). Phone and “Book a move”
+  link.
+
+INSURANCE (/insurance)
+  Asset protection and insurance (Goods-in-Transit vs carrier’s liability, etc.),
+  CTA to quote.
+
+PARTNERS (/partners)
+  B2B / partner enquiries, email link, back to home.
+
+FAQ (/faq)
+  Six FAQ items (monitoring, insurance, areas, quote, accreditation, packing).
+  FAQPage JSON-LD for rich results.
+
+PRIVACY (/privacy)
+  Privacy policy page.
+
+SERVICES INDEX (/services)
+  Grid of service cards linking to each service subpage.
+
+SERVICE PAGES (8)
+  house-removals, long-distance, packing, cleaning, storage, crate-rentals,
+  pet-relocation, vehicle-transport. Each has title, body copy, and CTA to
+  /quote.
+
+SUBURB PAGES (/movers-in/[slug])
+  Six suburbs with dedicated SEO content (title, h1, description, landmarks).
+  Data in src/lib/suburb-content.ts; slugs from site-config SUBURBS.
+
+BLOG INDEX (/blog)
+  List of 10 blog posts (title, description, link to /blog/[slug]).
+
+BLOG POSTS (/blog/[slug])
+  Ten strategy-driven posts; slugs and titles below.
+
+
+4. BLOG POSTS (ALL 10)
+--------------------------------------------------------------------------------
+ 1. meyersdal-eco-estate-moving-guide
+    The Ultimate Guide to Moving into Meyersdal Eco and Nature Estates (2026 Rules & Regulations)
+
+ 2. blind-moving-trucks-cargo-theft-risk
+    Why 'Blind' Moving Trucks Are a Risk: Gauteng Cargo Theft and How to Protect Your Assets
+
+ 3. plastic-crates-vs-cardboard-boxes
+    Plastic Moving Crates vs Cardboard Boxes: The Eco-Friendly Shift Saving Alberton Residents Money
+
+ 4. moving-insurance-south-africa-git-vs-carriers-liability
+    Demystifying Moving Insurance in South Africa: Goods-in-Transit vs Carrier's Liability
+
+ 5. new-redruth-brackenhurst-relocation-guide-2026
+    Relocating to New Redruth and Brackenhurst: The 2026 Suburb Profile and Property Trend Guide
+
+ 6. service-recovery-paradox-moving-companies
+    The Service Recovery Paradox: Why Accountability Is the Most Important Metric for Moving Companies
+
+ 7. moving-company-scams-gauteng-2026
+    How to Spot and Avoid Moving Company Scams in Gauteng (2026 Update)
+
+ 8. hidden-cost-cheap-movers
+    The Hidden Cost of 'Cheap' Movers: Why Low-Volume Bakkie Rentals Put Your Assets at Risk
+
+ 9. moving-checklist-south-africa-2026
+    The Ultimate 2026 Moving Checklist for South African Families: 8 Weeks to a Stress-Free Relocation
+
+10. office-relocations-alberton-alrode
+    Corporate and Office Relocations in Alberton: Minimizing Downtime in the Alrode Industrial Node
+
+  Data source: src/lib/blog-posts.ts (BLOG_POSTS array; getPostBySlug, getAllSlugs).
+
+
+5. SEO IMPLEMENTATION
+--------------------------------------------------------------------------------
+
+5.1 Root metadata (layout.tsx)
+  • title: default + template “%s | On The Move Again”
+  • description: Alberton secure furniture removals, GPS, PMA/AMOSA, free quote.
+  • keywords: furniture removals Alberton, movers Alberton, moving company Alberton,
+    packers and movers, long distance movers Gauteng.
+  • openGraph: title, description, url, siteName, locale (en_ZA).
+  • twitter: card (summary_large_image), title, description.
+  • alternates.canonical: SITE.url (homepage only; inner pages override – see 5.2).
+  • robots: index: true, follow: true.
+
+5.2 Per-page metadata and canonicals
+  • Every page sets export const metadata (or generateMetadata for dynamic
+    routes) with title and description.
+  • Every page sets its own alternates.canonical to the full URL for that page
+    (e.g. /about → https://otma.co.za/about, /blog/[slug] → https://otma.co.za/blog/{slug}).
+    Homepage uses layout canonical (SITE.url).
+  • Blog [slug]: generateMetadata with title, description, alternates.canonical,
+    openGraph (article, publishedTime, url), twitter (card, title, description).
+  • Suburb pages: generateMetadata from SUBURB_CONTENT with title, description,
+    alternates.canonical.
+
+5.3 JSON-LD structured data
+  • MovingCompany (site-wide): In layout via <MovingCompanyJsonLd />.
+    Includes: name, image, url, telephone, priceRange, address, geo,
+    areaServed as Place[] with name + url (https://otma.co.za/movers-in/{slug})
+    for each suburb (signals hyper-local landing pages), openingHoursSpecification,
+    aggregateRating. File: src/components/JsonLd.tsx.
+  • FAQPage: On /faq (full FAQ), and nested on key service pages for rich
+    snippets: /insurance (3 FAQs: GIT vs Carrier’s Liability, coverage limit,
+    trucks monitored), /services/house-removals (3 FAQs: monitored, areas, vehicle
+    sizes). Each page has visible FAQ block + inline FAQPage JSON-LD.
+  • BlogPosting: On every blog post (/blog/[slug]). headline, description,
+    datePublished, author/publisher (Organization), mainEntityOfPage url.
+    Inline in src/app/blog/[slug]/page.tsx (BlogPostingJsonLd).
+
+5.4 Sitemap and robots
+  • app/sitemap.ts: Generates XML sitemap at /sitemap.xml. Includes all static
+    routes, all blog post slugs, all suburb slugs; lastModified, changeFrequency,
+    priority per URL.
+  • app/robots.ts: Allows all user agents, allow “/”, disallow none; sitemap
+    URL set to https://otma.co.za/sitemap.xml.
+
+5.5 Redirects (next.config.ts)
+  • /movers-in-{suburb} → /movers-in/{suburb} (301) for:
+    alberton, meyersdal, brackenhurst, new-redruth, randhart, alberante.
+  • Ensures old “movers-in-alberton” style URLs still work.
+
+5.6 HTML & accessibility
+  • <html lang="en-ZA">.
+  • Semantic structure: header, main, footer; article for blog posts.
+  • Sticky CTA (Call / WhatsApp) on mobile only; focus and contrast tuned for
+    Lighthouse (sky blue: text-sky-700, bg-sky-600, etc.).
+  • Gallery: Placeholder blocks have descriptive aria-labels; comment in code
+    instructs use of descriptive alt text when adding real photos.
+
+5.7 Suburb SEO content
+  • Each suburb has unique title, h1, description, and landmarks in
+    src/lib/suburb-content.ts. Used by /movers-in/[slug] for metadata and
+    on-page copy.
+
+
+6. CONFIGURATION & DATA
+--------------------------------------------------------------------------------
+
+6.1 Site config (src/lib/site-config.ts)
+  • SITE: name, tagline, url, phone, phoneE164, whatsapp, email, address,
+    geo, hours, rating, accreditations (PMA, AMOSA).
+  • SUBURBS: 6 suburbs with slug, name, character.
+  • NAV: Top-level nav (Home, Services dropdown, Get a Quote, Track, About,
+    More dropdown with Blog, FAQ, Contact, Partners).
+  • NAV_LINKS: Flat list for footer and simple menus.
+
+6.2 Suburb content (src/lib/suburb-content.ts)
+  • SUBURB_CONTENT: Per-slug title, h1, description, landmarks, optional tips.
+  • SuburbSlug type and Record for type-safe suburb pages.
+
+
+7. UI / DESIGN
+--------------------------------------------------------------------------------
+  • Colour: Sky blue accent (replacing previous green); contrast chosen for
+    Lighthouse (e.g. sky-700 for links, sky-600 for buttons).
+  • Components: Header (desktop dropdowns, mobile drawer), Footer (4 columns:
+    Brand, Contact, Quick links, Areas we serve), StickyCTA (mobile).
+  • Responsive: Tailwind breakpoints; gallery 2 cols mobile, 4 cols md+;
+    hero split layout on lg+.
+  • Fonts: Geist Sans, Geist Mono (Next.js Google fonts).
+
+
+8. FILES & FOLDERS (KEY)
+--------------------------------------------------------------------------------
+  src/
+    app/            All routes (page.tsx per route; [slug] for dynamic).
+                    sitemap.ts (XML sitemap), robots.ts (robots.txt).
+    components/     Header, Footer, StickyCTA, JsonLd.
+    lib/            site-config.ts, suburb-content.ts, blog-posts.ts.
+  next.config.ts    Redirects (movers-in-* → movers-in/*).
+  .cursorrules       Cursor AI project rules: SEO, metadata, canonicals, schema,
+                    Tailwind, next/image, NAP consistency (see section 10).
+  package.json      next 16, react 19, tailwind 4, typescript 5.
+
+================================================================================
+9. SEO RATING (OUT OF 10)
+================================================================================
+
+Overall score: 9 / 10
+
+What’s in place (updated)
+--------------------------------------------------------------------------------
+• Root metadata: Title template, description, keywords, openGraph, and
+  Twitter cards (summary_large_image, title, description). robots index/follow.
+• Per-page canonical URLs: Every route now sets alternates.canonical to its
+  own URL (homepage from layout; /about, /contact, /quote, services, blog,
+  movers-in/[slug], etc. each set explicitly). Blog and suburb pages use
+  generateMetadata with canonical and openGraph url.
+• XML sitemap: app/sitemap.ts generates a full sitemap (static routes, all
+  blog slugs, all suburb slugs) with lastModified, changeFrequency, and
+  priority. Served at /sitemap.xml.
+• robots.txt: app/robots.ts allows all, disallow none, and references
+  SITE.url/sitemap.xml for crawler discovery.
+• Structured data: MovingCompany JSON-LD site-wide (areaServed as Place with
+  name + url to each /movers-in/[slug]). FAQPage on /faq and on /insurance and
+  /services/house-removals. BlogPosting on every blog post.
+• Blog posts: Canonical, openGraph url, and Twitter card metadata per post.
+• Redirects: 301s from /movers-in-{suburb} to /movers-in/{suburb} for all
+  six suburbs.
+• Image SEO: Gallery placeholders use descriptive aria-labels; in-code
+  comment instructs to use descriptive alt text when adding real photos
+  (e.g. "OTMA moving truck at Joanique Eco Park").
+
+Remaining optional improvements (~0.5–1 point headroom)
+--------------------------------------------------------------------------------
+• When you add real gallery images: Use next/image with short, descriptive
+  alt text for each (e.g. "Moving truck at Joanique Eco Park", "Crew packing
+  in Alberton") to maximise image SEO and accessibility.
+• Optional: Add a default openGraph image (e.g. og-image.jpg) and set
+  metadata.openGraph.images so shares show a branded image when no page-specific
+  image is set.
+• Optional: If you add more than ~50k URLs in future, split sitemap via
+  generateSitemaps() and sitemap({ id }) for multiple sitemap files.
+
+================================================================================
+10. STRATEGY DOC & CODE GOVERNANCE
+================================================================================
+
+10.1 Next.js SEO Strategy For Furniture Removal.txt
+  • Macro strategy, consumer psychology, competitor positioning (A&B, Fresh Movers,
+    CJ Removals, micro-logisticians), 10-pillar blog architecture, semantic
+   /local entity SEO, Next.js 16 technical stack (PPR, streaming metadata,
+    canonical/sitemap/redirects), structured data, NAP/citations.
+  • Implemented in code: per-page canonicals, sitemap, robots, MovingCompany
+    with areaServed URLs, FAQPage on /faq + /insurance + /services/house-removals,
+    BlogPosting on posts, .cursorrules.
+
+10.2 .cursorrules (Cursor AI project rules)
+  • Enforces: App Router, RSC default; per-page metadata and canonical; semantic
+    HTML; MovingCompany areaServed with Place url; FAQPage on key service pages;
+    BlogPosting on posts; Tailwind v4; next/image + descriptive alt; NAP
+    consistency with site-config and JSON-LD. New pages must be added to sitemap.
+
+10.3 What you need to do (from strategy doc)
+  • NAP consistency: Keep Name, Address, Phone identical across site (site-config,
+    JSON-LD, footer), Google Business Profile, and any directories.
+  • Local citations: Strategy recommends listing on Yellowpages.co.za, Brabys.com,
+    SAYellow, Bizcommunity, Sirelo, HelloPeter. Use the same NAP everywhere.
+  • Optional: Default Open Graph image (e.g. og-image.jpg) for social shares;
+    visual inventory calculator; Shadcn/UI or Framer Motion if extending UI.
+
+================================================================================
+END OF PROJECT SUMMARY
+================================================================================
