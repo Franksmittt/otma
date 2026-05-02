@@ -53,9 +53,9 @@ export function ContentImage({
     : resolvedRatioClass;
   const figureClass = fillRowHeight ? `lg:flex lg:h-full lg:min-h-0 lg:flex-col ${className}` : className;
   return (
-    <figure className={`w-full ${figureClass}`.trim()}>
+    <figure className={`w-full min-w-0 ${figureClass}`.trim()}>
       <div
-        className={`relative w-full min-h-0 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 ${ratioBoxClass}`}
+        className={`relative w-full min-h-0 min-w-0 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 ${ratioBoxClass}`}
       >
         <Image
           src={src}

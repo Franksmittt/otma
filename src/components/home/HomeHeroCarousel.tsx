@@ -99,9 +99,9 @@ export function HomeHeroCarousel() {
       />
 
       <div className="relative mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
-        <div className="grid min-h-0 flex-1 grid-cols-1 grid-rows-[auto_minmax(0,1fr)] items-stretch gap-5 lg:grid-cols-12 lg:grid-rows-1 lg:items-stretch lg:gap-10">
+        <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 grid-rows-[auto_minmax(0,1fr)] items-stretch gap-5 lg:grid-cols-12 lg:grid-rows-1 lg:items-stretch lg:gap-10">
           {/* Copy */}
-          <div className="flex min-h-0 flex-col justify-center text-center max-lg:shrink-0 lg:col-span-5 lg:h-full lg:text-left">
+          <div className="flex min-h-0 min-w-0 flex-col justify-center text-center max-lg:shrink-0 lg:col-span-5 lg:h-full lg:text-left">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-sky-400 sm:text-xs">{slide.kicker}</p>
             <div className="mt-2 sm:mt-3">
               {slide.isPrimary ? (
@@ -178,7 +178,7 @@ export function HomeHeroCarousel() {
           </div>
 
           {/* Image + trust card */}
-          <div className="flex min-h-0 min-w-0 flex-col items-stretch justify-center max-lg:min-h-0 lg:col-span-7 lg:h-full">
+          <div className="flex min-h-0 min-w-0 flex-col items-stretch justify-center max-lg:min-h-0 lg:col-span-7 lg:h-full lg:min-w-0">
             <div
               id={`hero-slide-panel-${slide.id}`}
               role="tabpanel"

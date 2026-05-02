@@ -16,11 +16,12 @@ function HeaderLogo() {
   return (
     <Link
       href="/"
-      className="relative z-10 min-w-0 shrink-0 overflow-visible py-1 text-left"
+      className="relative z-10 block min-w-0 max-md:w-full max-md:min-w-0 overflow-visible py-1 text-left md:inline-block md:w-auto md:shrink-0"
       aria-label={`${SITE.name} — Home`}
     >
-      <span className="inline-flex items-baseline font-black tracking-tight text-zinc-900 dark:text-white">
-        <span className="text-sm sm:text-base">
+      <span className="inline-flex max-md:w-full max-md:items-baseline max-md:justify-start items-baseline font-black text-zinc-900 dark:text-white max-md:tracking-[-0.02em] md:tracking-tight">
+        {/* Mobile: larger + slightly wider tracking; md+: compact bar height */}
+        <span className="text-[1.35rem] leading-[1.12] min-[400px]:text-[1.5rem] md:text-base md:leading-normal">
           On The{" "}
           <span className="relative inline-block overflow-visible align-baseline">
             <span className="otma-logo-move inline-block text-sky-600 dark:text-sky-400">Move</span>
@@ -56,8 +57,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 overflow-visible border-b border-zinc-200 bg-white/95 text-zinc-900 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/95 dark:text-zinc-100">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 overflow-visible px-4 sm:px-6">
-        <HeaderLogo />
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-2 overflow-visible px-3 sm:gap-4 sm:px-6 md:h-16 md:min-h-0">
+        <div className="flex min-w-0 flex-1 items-center md:block md:w-auto md:flex-none">
+          <HeaderLogo />
+        </div>
 
         {/* Desktop nav + CTAs - hidden on mobile */}
         <nav className="hidden flex-1 items-center justify-center gap-0.5 md:flex">

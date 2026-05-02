@@ -9,7 +9,7 @@ const TONE_SHELL: Record<PageBandTone, string> = {
   sky: "border-y border-sky-200/80 bg-sky-50/90 text-zinc-900",
 };
 
-const INNER_PAD = "mx-auto w-full px-3 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-16";
+const INNER_PAD = "mx-auto w-full min-w-0 px-4 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-16";
 
 const MAX_W = {
   "6xl": "max-w-6xl",

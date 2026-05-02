@@ -63,7 +63,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
         <MovingCompanyJsonLd />
         <Header />
-        <main className="min-h-[calc(100lvh-4rem)] bg-background pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] text-foreground md:min-h-[calc(100vh-4rem)] md:pb-0">
+        <main className="min-h-[calc(100lvh-4rem)] min-w-0 bg-background pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] text-foreground md:min-h-[calc(100vh-4rem)] md:pb-0">
           {children}
         </main>
         <Footer />

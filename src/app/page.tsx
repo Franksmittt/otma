@@ -40,7 +40,7 @@ const RECENT_POSTS = [...BLOG_POSTS].sort((a, b) => b.date.localeCompare(a.date)
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="min-w-0">
       <HomeFaqJsonLd />
 
       {/* 1. Hero — 3-slide carousel (client) */}

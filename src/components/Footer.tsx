@@ -31,7 +31,7 @@ export function Footer() {
               <span className="rounded border border-sky-500/20 bg-sky-500/5 px-1.5 py-0.5 text-[0.65rem] font-medium text-sky-400/90">
                 AMOSA
               </span>
-              <span className="rounded border border-emerald-500/15 bg-emerald-500/5 px-1.5 py-0.5 text-[0.65rem] font-medium text-emerald-400/80">
+              <span className="rounded border border-sky-500/20 bg-sky-500/5 px-1.5 py-0.5 text-[0.65rem] font-medium text-sky-400/90">
                 GPS
               </span>
             </div>
