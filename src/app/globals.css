@@ -64,3 +64,35 @@ body {
     padding-bottom: 4rem;
   }
 }
+
+/* Header wordmark — “Move” lifts up, drops back in, pauses (no opacity hide so motion stays visible) */
+@keyframes otma-logo-move-cycle {
+  0%,
+  30% {
+    transform: translate3d(0, 0, 0);
+  }
+  38% {
+    transform: translate3d(0, -0.85em, 0) scale(0.94);
+  }
+  42% {
+    transform: translate3d(0, -1.25em, 0) scale(0.9);
+  }
+  46% {
+    transform: translate3d(0, 0.55em, 0) scale(0.96);
+  }
+  52%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.otma-logo-move {
+  transform-origin: center bottom;
+  animation: otma-logo-move-cycle 4.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .otma-logo-move {
+    animation: none;
+  }
+}

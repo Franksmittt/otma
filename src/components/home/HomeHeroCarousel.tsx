@@ -10,8 +10,8 @@ const SLIDE_INTERVAL_MS = 7000;
 /** On-brand hero photography (`/public/images/hero/`). Order matches carousel slides. */
 const HERO_IMAGES = [
   { src: "/images/hero/home-hero-1.jpg", alt: "On The Move Again monitored removals fleet and crew" },
-  { src: "/images/hero/home-hero-2.jpg", alt: "Long-distance and regional furniture moves on the road" },
-  { src: "/images/hero/home-hero-3.jpg", alt: "Full-service home and office relocation in Alberton and surrounds" },
+  { src: "/images/hero/home-hero-2.jpg", alt: "Long distance and regional furniture moves on the road" },
+  { src: "/images/hero/home-hero-3.jpg", alt: "Full service home and office relocation in Alberton and surrounds" },
 ] as const;
 
 type Slide = {
@@ -29,11 +29,11 @@ type Slide = {
 const SLIDES: Slide[] = [
   {
     id: "secure",
-    kicker: "Alberton · Monitored fleet",
-    title: SITE.tagline,
+    kicker: "Alberton · GPS fleet",
+    title: "High trust Alberton movers with GPS",
     description:
-      "Real-time GPS on every truck, PMA and AMOSA accreditation, and a client portal so you see milestones instead of guesswork.",
-    footnote: "Alberton · Long-haul to Cape Town & KZN · Office · Packing & storage",
+      "Live GPS on every truck, PMA and AMOSA crews, and a client portal so you replace guesswork with milestones across Alberton, the East Rand, Cape Town, and Durban.",
+    footnote: "Alberton · Cape Town & KZN · Office · Packing & storage",
     imageSrc: HERO_IMAGES[0].src,
     imageAlt: HERO_IMAGES[0].alt,
     isPrimary: true,
@@ -41,21 +41,21 @@ const SLIDES: Slide[] = [
   {
     id: "distance",
     kicker: "N1 · N3 · nationwide",
-    title: "Long-distance that stays on the map",
+    title: "Long distance that stays on the map",
     description:
-      "Honest load and delivery windows, highway-ready padding, and the same monitored standards whether you are moving across the East Rand or to Cape Town and Durban.",
-    footnote: "Goods-in-transit options · Clear quotes · No black-box logistics",
+      "Honest load and delivery windows, highway ready padding, and the same monitored standards whether you are moving across the East Rand or to Cape Town and Durban.",
+    footnote: "Goods in transit options · Clear quotes · No black box logistics",
     imageSrc: HERO_IMAGES[1].src,
     imageAlt: HERO_IMAGES[1].alt,
     isPrimary: false,
   },
   {
     id: "full",
-    kicker: "One team · Joanique Eco Park",
-    title: "Pack, move, store, clean. One coordinated crew.",
+    kicker: "Joanique · one team",
+    title: "Alberton pack to handover moves hub",
     description:
-      "House and office removals, packing and crates, storage, post-move cleaning, pets, and vehicles. One plan from quote to handover so nothing falls between the cracks.",
-    footnote: "Owner-led scheduling · Estate-aware timing · Plastic crates or boxes",
+      "House and office removals, packing, crates, storage, cleaning, pets and vehicles. One plan from quote to handover with no cracks across Alberton or our East Rand.",
+    footnote: "Owner led scheduling · Estate aware timing · Crates or boxes",
     imageSrc: HERO_IMAGES[2].src,
     imageAlt: HERO_IMAGES[2].alt,
     isPrimary: false,
@@ -200,7 +200,7 @@ export function HomeHeroCarousel() {
               <div className="relative shrink-0 border-t border-white/10 bg-zinc-950/90 p-3 sm:p-4">
                 <div className="flex flex-wrap items-center gap-2 text-xs sm:gap-3 sm:text-sm">
                   <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 font-medium text-white">
-                    <span className="text-sky-400">★</span> {SITE.rating.value}/10 · {SITE.rating.count}+ reviews
+                    <span className="text-sky-400">★</span> {SITE.rating.value}/{SITE.rating.best} · {SITE.rating.count}+ reviews
                   </span>
                   <span className="inline-flex items-center rounded-lg bg-sky-500/20 px-3 py-1.5 font-medium text-sky-200">
                     PMA · AMOSA

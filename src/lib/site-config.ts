@@ -25,7 +25,8 @@ export const SITE = {
     { day: "Monday-Saturday", opens: "06:00", closes: "20:00" },
     { day: "Sunday", opens: "07:00", closes: "14:00" },
   ],
-  rating: { value: 9.8, count: 35, best: 10 },
+  /** Google-style aggregate (stars out of 5) */
+  rating: { value: 4.8, count: 35, best: 5 },
   accreditations: ["PMA", "AMOSA"],
 } as const;
 
@@ -38,9 +39,11 @@ export const SUBURBS = [
   { slug: "alberante", name: "Alberante", character: "Quiet; high-income" },
 ] as const;
 
-/** Top-level nav: links and dropdowns */
+/**
+ * Top-level header nav — keep sparse: logo → Home; Services mega; Quote + Track primary;
+ * About / blog / support live under Company.
+ */
 export const NAV = [
-  { href: "/", label: "Home" },
   {
     label: "Services",
     children: [
@@ -55,12 +58,12 @@ export const NAV = [
       { href: "/services/vehicle-transport", label: "Vehicle transport" },
     ],
   },
-  { href: "/quote", label: "Get a Quote" },
-  { href: "/track", label: "Track Your Move" },
-  { href: "/about", label: "About" },
+  { href: "/quote", label: "Quote" },
+  { href: "/track", label: "Track" },
   {
-    label: "More",
+    label: "Company",
     children: [
+      { href: "/about", label: "About" },
       { href: "/blog", label: "Blog" },
       { href: "/faq", label: "FAQ" },
       { href: "/contact", label: "Contact" },

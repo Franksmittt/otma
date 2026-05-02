@@ -12,6 +12,26 @@ function hasChildren(item: NavItem): item is Extract<NavItem, { children: unknow
   return "children" in item;
 }
 
+function HeaderLogo() {
+  return (
+    <Link
+      href="/"
+      className="relative z-10 min-w-0 shrink-0 overflow-visible py-1 text-left"
+      aria-label={`${SITE.name} — Home`}
+    >
+      <span className="inline-flex items-baseline font-black tracking-tight text-zinc-900 dark:text-white">
+        <span className="text-sm sm:text-base">
+          On The{" "}
+          <span className="relative inline-block overflow-visible align-baseline">
+            <span className="otma-logo-move inline-block text-sky-600 dark:text-sky-400">Move</span>
+          </span>{" "}
+          Again
+        </span>
+      </span>
+    </Link>
+  );
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -35,25 +55,19 @@ export function Header() {
   }, [open, closeMenu]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 text-zinc-900 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/95 dark:text-zinc-100">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        {/* Logo - always left */}
-        <Link
-          href="/"
-          className="min-w-0 shrink-0 font-semibold text-zinc-900 dark:text-white"
-        >
-          {SITE.name}
-        </Link>
+    <header className="sticky top-0 z-50 overflow-visible border-b border-zinc-200 bg-white/95 text-zinc-900 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/95 dark:text-zinc-100">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 overflow-visible px-4 sm:px-6">
+        <HeaderLogo />
 
         {/* Desktop nav + CTAs - hidden on mobile */}
-        <nav className="hidden flex-1 items-center justify-center gap-1 md:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-0.5 md:flex">
           {NAV.map((item) => {
             if (isNavLink(item)) {
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                  className="rounded-md px-2.5 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -70,12 +84,12 @@ export function Header() {
               >
                 <button
                   type="button"
-                  className="flex items-center gap-1 rounded px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                  className="flex items-center gap-0.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
                   aria-expanded={isOpen}
                   aria-haspopup="true"
                 >
                   {item.label}
-                  <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -162,6 +176,13 @@ export function Header() {
           }`}
         >
           <nav className="flex flex-col gap-0 py-4">
+            <Link
+              href="/"
+              className="border-b border-zinc-100 px-4 py-3.5 font-medium text-zinc-900 hover:bg-zinc-50 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-900"
+              onClick={closeMenu}
+            >
+              Home
+            </Link>
             {NAV.map((item) => {
               if (isNavLink(item)) {
                 return (

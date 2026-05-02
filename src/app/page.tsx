@@ -57,7 +57,9 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
             <div className="text-center">
-              <p className="text-2xl font-bold text-zinc-900">{SITE.rating.value}/10</p>
+              <p className="text-2xl font-bold text-zinc-900">
+                {SITE.rating.value}/{SITE.rating.best}
+              </p>
               <p className="mt-1 text-sm font-medium text-zinc-700">Google rating</p>
             </div>
             <div className="text-center">
