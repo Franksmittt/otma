@@ -1206,3 +1206,111 @@
   color: rgba(120, 120, 128, 0.75);
   text-wrap: balance;
 }
+
+/* Image prompt backup library (login / Ad Studio) */
+.otma-ad-studio-root .prompt-library {
+  margin-bottom: 3rem;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.otma-ad-studio-root .prompt-library h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.otma-ad-studio-root .prompt-library-lede {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #86868b;
+}
+
+.otma-ad-studio-root .prompt-library-lede code {
+  font-size: 0.8em;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #c4c4cc;
+}
+
+.otma-ad-studio-root .prompt-library-details {
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--ui-bg);
+  padding: 0.5rem 1rem 1rem;
+}
+
+.otma-ad-studio-root .prompt-library-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--white);
+  padding: 0.35rem 0;
+  list-style-position: outside;
+}
+
+.otma-ad-studio-root .prompt-library-hint {
+  margin: 0.35rem 0 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #86868b;
+}
+
+.otma-ad-studio-root .prompt-library-pre {
+  margin: 0 0 0.75rem;
+  padding: 1rem;
+  max-height: min(50vh, 28rem);
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: #d1d1d6;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.otma-ad-studio-root .prompt-library-textarea {
+  display: block;
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0.75rem;
+  min-height: 12rem;
+  max-height: min(55vh, 32rem);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #d1d1d6;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.otma-ad-studio-root .prompt-library-copy {
+  appearance: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(14, 165, 233, 0.2);
+  color: var(--tech-blue-bright);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.otma-ad-studio-root .prompt-library-copy:hover {
+  background: rgba(14, 165, 233, 0.35);
+}

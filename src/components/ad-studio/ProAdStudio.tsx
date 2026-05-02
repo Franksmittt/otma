@@ -6,6 +6,7 @@ import { SITE } from "@/lib/site-config";
 import { StreamingCardLayout21 } from "@/components/ad-studio/StreamingCardLayout21";
 import { StreamingCenterModalLayout22 } from "@/components/ad-studio/StreamingCenterModalLayout22";
 import { StreamingInvertedPricingLayout23 } from "@/components/ad-studio/StreamingInvertedPricingLayout23";
+import { ImagePromptLibrary } from "@/components/ad-studio/ImagePromptLibrary";
 
 type Template = {
   id: number;
@@ -260,6 +261,8 @@ export function ProAdStudio() {
           download 9:16 ads ready for social.
         </p>
       </header>
+
+      <ImagePromptLibrary />
 
       <div className="studio-grid">
         {TEMPLATES.map((t) => (
