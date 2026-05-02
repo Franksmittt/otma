@@ -27,7 +27,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label htmlFor="contact-name" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-300">
             Name *
           </label>
           <input
@@ -35,12 +35,12 @@ export function ContactForm() {
             type="text"
             name="name"
             required
-            className="mt-1.5 min-h-[44px] w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
+            className="mt-1.5 min-h-[44px] w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-500 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
             placeholder="Your name"
           />
         </div>
         <div>
-          <label htmlFor="contact-phone" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label htmlFor="contact-phone" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-300">
             Phone *
           </label>
           <input
@@ -48,13 +48,13 @@ export function ContactForm() {
             type="tel"
             name="phone"
             required
-            className="mt-1.5 min-h-[44px] w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
+            className="mt-1.5 min-h-[44px] w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-500 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
             placeholder="072 000 0000"
           />
         </div>
       </div>
       <div>
-        <label htmlFor="contact-email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label htmlFor="contact-email" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-300">
           Email *
         </label>
         <input
@@ -62,12 +62,12 @@ export function ContactForm() {
           type="email"
           name="email"
           required
-          className="mt-1.5 min-h-[44px] w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
+          className="mt-1.5 min-h-[44px] w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-500 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
           placeholder="you@example.com"
         />
       </div>
       <div>
-        <label htmlFor="contact-subject" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label htmlFor="contact-subject" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-300">
           Subject
         </label>
         <select
@@ -82,7 +82,7 @@ export function ContactForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label htmlFor="contact-message" className="block text-sm font-semibold text-zinc-800 dark:text-zinc-300">
           Message *
         </label>
         <textarea
@@ -90,7 +90,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="mt-1.5 w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
+          className="mt-1.5 w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder-zinc-500 focus:border-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-600/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
           placeholder="Tell us about your move or ask a question..."
         />
       </div>

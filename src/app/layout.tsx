@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SITE } from "@/lib/site-config";
 import { Header } from "@/components/Header";
@@ -16,6 +16,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -53,11 +59,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-ZA">
+    <html lang="en-ZA" data-theme="light">
       <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
         <MovingCompanyJsonLd />
         <Header />
-        <main className="min-h-[calc(100vh-4rem)] pb-24 md:pb-0">{children}</main>
+        <main className="min-h-[calc(100dvh-4rem)] bg-background pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] text-foreground md:min-h-[calc(100vh-4rem)] md:pb-0">
+          {children}
+        </main>
         <Footer />
         <StickyCTA />
       </body>

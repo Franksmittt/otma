@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+/* Light only: `dark:` utilities never match (no `data-theme="dark"` on the page). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  /* Slightly deeper than neutral-900 for default UI text */
+  --foreground: #18181b;
 }
 
 @theme inline {
@@ -12,22 +16,28 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   scroll-behavior: smooth;
+  background: var(--background);
+  color-scheme: light;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  /* Geist Variable supports in-between weights for slightly stronger body copy */
+  font-weight: 450;
   overflow-x: hidden;
+}
+
+/* iOS safe area: clear fixed CTAs and notched devices */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 /* Consistent page content width and spacing */
