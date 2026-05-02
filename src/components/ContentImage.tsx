@@ -21,6 +21,13 @@ type ContentImageProps = {
   sizes?: string;
   /** Optional figcaption classes (default: centred, small). */
   captionClassName?: string;
+  /**
+   * On `lg+`, drop fixed aspect ratio and fill the parent height (e.g. match a text column in a stretched grid).
+   * Below `lg`, keeps the normal `ratio` aspect box.
+   */
+  fillRowHeight?: boolean;
+  /** With `ratio="wide"`, use a much shorter strip (~half the default height at the same width). */
+  slimWide?: boolean;
 };
 
 export function ContentImage({
@@ -32,14 +39,23 @@ export function ContentImage({
   className = "",
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 56rem",
   captionClassName,
+  fillRowHeight = false,
+  slimWide = false,
 }: ContentImageProps) {
   const captionStyles =
     captionClassName ??
     "mt-2 text-center text-xs font-medium text-zinc-700 dark:text-zinc-400 sm:text-sm";
+  const wideSlim = "aspect-[16/5] sm:aspect-[16/5]";
+  const resolvedRatioClass =
+    ratio === "wide" && slimWide && !fillRowHeight ? wideSlim : ratioClass[ratio];
+  const ratioBoxClass = fillRowHeight
+    ? `${resolvedRatioClass} lg:aspect-auto lg:min-h-0 lg:h-full lg:flex-1`
+    : resolvedRatioClass;
+  const figureClass = fillRowHeight ? `lg:flex lg:h-full lg:min-h-0 lg:flex-col ${className}` : className;
   return (
-    <figure className={`w-full ${className}`}>
+    <figure className={`w-full ${figureClass}`.trim()}>
       <div
-        className={`relative w-full min-h-0 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 ${ratioClass[ratio]}`}
+        className={`relative w-full min-h-0 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 ${ratioBoxClass}`}
       >
         <Image
           src={src}

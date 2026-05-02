@@ -233,21 +233,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Real homes — light */}
+      {/* 6. Real homes — light (image spans same width as What we do 4-card row: max-w-6xl inner) */}
       <section className="border-t border-zinc-200 bg-zinc-50 py-12 sm:py-16" aria-labelledby="home-homes-heading">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <h2 id="home-homes-heading" className="text-center text-xl font-bold text-zinc-900 sm:text-2xl">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 id="home-homes-heading" className="mx-auto max-w-4xl text-center text-xl font-bold text-zinc-900 sm:text-2xl">
             Real homes, real care
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-zinc-700 sm:text-base">
             From lounges and dining sets to bedrooms and fragile décor, we plan protection and placement so your new
             space feels like home from day one.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 w-full min-w-0">
             <ContentImage
               src="/images/home/home-real-homes-real-care.jpg"
               alt="Careful furniture placement and protection for lounges, dining sets, and bedrooms in your new home"
               ratio="wide"
+              slimWide
+              sizes="(max-width: 1024px) 100vw, 72rem"
             />
           </div>
         </div>
@@ -255,7 +257,7 @@ export default function HomePage() {
 
       {/* 7. Long-distance — dark */}
       <section className="border-t border-zinc-800 bg-zinc-950 py-12 text-zinc-100 sm:py-16 md:py-20" aria-labelledby="home-ld-heading">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-14">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch lg:gap-14">
           <div className="min-w-0">
             <h2 id="home-ld-heading" className="text-2xl font-bold text-white sm:text-3xl">
               Gauteng to Cape Town, Durban, and beyond
@@ -273,11 +275,13 @@ export default function HomePage() {
               Long-distance service details →
             </Link>
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
             <ContentImage
               src="/images/home/home-long-distance-corridors.jpg"
               alt="Monitored long-distance furniture moves on the N1 and N3 corridors with GPS and portal updates"
               ratio="wide"
+              fillRowHeight
+              className="lg:min-h-0 lg:flex-1 lg:self-stretch"
             />
           </div>
         </div>
@@ -285,12 +289,14 @@ export default function HomePage() {
 
       {/* 8. Insurance — light */}
       <section className="bg-white py-12 sm:py-16" aria-labelledby="home-insurance-heading">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
-          <div className="order-2 min-w-0 lg:order-1">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
+          <div className="order-2 min-w-0 lg:order-1 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
             <ContentImage
               src="/images/home/home-insurance-git-cover.jpg"
               alt="Goods-in-transit and all-risk cover with clear limits on your written OTMA quote"
-              ratio="photo"
+              ratio="wide"
+              fillRowHeight
+              className="lg:min-h-0 lg:flex-1 lg:self-stretch"
             />
           </div>
           <div className="order-1 min-w-0 lg:order-2">
@@ -311,7 +317,7 @@ export default function HomePage() {
 
       {/* 9. About — dark */}
       <section className="border-t border-zinc-800 bg-zinc-900 py-12 text-zinc-100 sm:py-16" aria-labelledby="home-about-heading">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-start">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
           <div className="min-w-0">
             <h2 id="home-about-heading" className="text-2xl font-bold text-white sm:text-3xl">
               Owner-led, Alberton-based
@@ -329,11 +335,13 @@ export default function HomePage() {
               About On The Move Again →
             </Link>
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
             <ContentImage
               src="/images/home/home-about-joanique-alberton.jpg"
               alt="On The Move Again at Joanique Eco Park, Alberton — owner-led removals base"
               ratio="wide"
+              fillRowHeight
+              className="lg:min-h-0 lg:flex-1 lg:self-stretch"
             />
           </div>
         </div>
