@@ -3,10 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { marketingImages } from "@/lib/marketing-images";
 import { SITE } from "@/lib/site-config";
 
 const SLIDE_INTERVAL_MS = 7000;
+
+/** On-brand hero photography (`/public/images/hero/`). Order matches carousel slides. */
+const HERO_IMAGES = [
+  { src: "/images/hero/home-hero-1.jpg", alt: "On The Move Again monitored removals fleet and crew" },
+  { src: "/images/hero/home-hero-2.jpg", alt: "Long-distance and regional furniture moves on the road" },
+  { src: "/images/hero/home-hero-3.jpg", alt: "Full-service home and office relocation in Alberton and surrounds" },
+] as const;
 
 type Slide = {
   id: string;
@@ -28,8 +34,8 @@ const SLIDES: Slide[] = [
     description:
       "Real-time GPS on every truck, PMA and AMOSA accreditation, and a client portal so you see milestones instead of guesswork.",
     footnote: "Alberton · Long-haul to Cape Town & KZN · Office · Packing & storage",
-    imageSrc: marketingImages.deliveryVan.src,
-    imageAlt: marketingImages.deliveryVan.alt,
+    imageSrc: HERO_IMAGES[0].src,
+    imageAlt: HERO_IMAGES[0].alt,
     isPrimary: true,
   },
   {
@@ -39,8 +45,8 @@ const SLIDES: Slide[] = [
     description:
       "Honest load and delivery windows, highway-ready padding, and the same monitored standards whether you are moving across the East Rand or to Cape Town and Durban.",
     footnote: "Goods-in-transit options · Clear quotes · No black-box logistics",
-    imageSrc: marketingImages.cityLogistics.src,
-    imageAlt: marketingImages.cityLogistics.alt,
+    imageSrc: HERO_IMAGES[1].src,
+    imageAlt: HERO_IMAGES[1].alt,
     isPrimary: false,
   },
   {
@@ -50,8 +56,8 @@ const SLIDES: Slide[] = [
     description:
       "House and office removals, packing and crates, storage, post-move cleaning, pets, and vehicles. One plan from quote to handover so nothing falls between the cracks.",
     footnote: "Owner-led scheduling · Estate-aware timing · Plastic crates or boxes",
-    imageSrc: marketingImages.modernHome.src,
-    imageAlt: marketingImages.modernHome.alt,
+    imageSrc: HERO_IMAGES[2].src,
+    imageAlt: HERO_IMAGES[2].alt,
     isPrimary: false,
   },
 ];
@@ -72,9 +78,9 @@ export function HomeHeroCarousel() {
 
   const slide = SLIDES[index];
 
-  /** Header is `h-16` (4rem). Below `md`, fixed StickyCTA — match `layout` main bottom padding (~5.5rem + safe area). */
+  /** `lvh` stays stable when mobile browser chrome shows/hides on scroll (`svh`/`dvh` jump). Header `h-16`; below `md`, StickyCTA + safe area. */
   const heroHeight =
-    "h-[calc(100svh-4rem)] max-md:h-[calc(100svh-4rem-5.5rem-env(safe-area-inset-bottom,0px))] min-h-0";
+    "h-[calc(100lvh-4rem)] max-md:h-[calc(100lvh-4rem-5.5rem-env(safe-area-inset-bottom,0px))] min-h-0";
 
   return (
     <section

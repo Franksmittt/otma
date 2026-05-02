@@ -7,6 +7,10 @@
   --background: #ffffff;
   /* Slightly deeper than neutral-900 for default UI text */
   --foreground: #18181b;
+  /* Tailwind sky turquoise (sRGB) — works in canvas export & all targets; matches sky-500/600/700 */
+  --otma-sky-500: #0ea5e9;
+  --otma-sky-600: #0284c7;
+  --otma-sky-700: #0369a1;
 }
 
 @theme inline {

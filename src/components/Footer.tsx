@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800/90">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
-        <div className="grid min-w-0 grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="grid min-w-0 grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 lg:gap-8">
           {/* Brand */}
           <div className="flex min-w-0 flex-col">
             <p className="font-semibold text-zinc-900 dark:text-white">{SITE.name}</p>
@@ -37,6 +37,21 @@ export function Footer() {
               <li className="leading-snug">
                 {SITE.address.street}<br />
                 {SITE.address.locality}, {SITE.address.postalCode}
+              </li>
+            </ul>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex min-w-0 flex-col">
+            <h3 className="font-semibold text-zinc-900 dark:text-white">Navigation</h3>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/login"
+                  className="text-zinc-700 hover:text-zinc-900 hover:underline dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Login
+                </Link>
               </li>
             </ul>
           </div>

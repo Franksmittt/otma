@@ -7,7 +7,6 @@ import { PageBand } from "@/components/page/PageBand";
 import { ServiceFaqSection } from "@/components/services/ServiceFaqSection";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { SITE_FAQ_ITEMS } from "@/lib/faq-content";
-import { marketingImages } from "@/lib/marketing-images";
 import { SERVICE_LINKS } from "@/lib/services-list";
 import { SITE, SUBURBS } from "@/lib/site-config";
 
@@ -164,8 +163,8 @@ export default function HomePage() {
             </div>
             <div className="min-w-0">
               <ContentImage
-                src={marketingImages.connectivity.src}
-                alt={marketingImages.connectivity.alt}
+                src="/images/home/home-monitoring-smile-camera.jpg"
+                alt="Monitored OTMA fleet with live GPS and in-transit visibility for your move"
                 ratio="photo"
               />
               <p className="mt-4 text-sm text-zinc-700">
@@ -191,8 +190,8 @@ export default function HomePage() {
 
           <div className="mt-10 w-full min-w-0 sm:mt-12">
             <ContentImage
-              src={marketingImages.movingBoxes.src}
-              alt={marketingImages.movingBoxes.alt}
+              src="/images/home/home-full-service-relocation.jpg"
+              alt="On The Move Again full-service relocation: packing, transport, storage, and coordinated crew in Alberton"
               ratio="wide"
               sizes="(max-width: 1024px) 100vw, 72rem"
             />
@@ -246,8 +245,8 @@ export default function HomePage() {
           </p>
           <div className="mt-8">
             <ContentImage
-              src={marketingImages.livingRoomFurniture.src}
-              alt={marketingImages.livingRoomFurniture.alt}
+              src="/images/home/home-real-homes-real-care.jpg"
+              alt="Careful furniture placement and protection for lounges, dining sets, and bedrooms in your new home"
               ratio="wide"
             />
           </div>
@@ -276,8 +275,8 @@ export default function HomePage() {
           </div>
           <div className="min-w-0">
             <ContentImage
-              src={marketingImages.cityLogistics.src}
-              alt={marketingImages.cityLogistics.alt}
+              src="/images/home/home-long-distance-corridors.jpg"
+              alt="Monitored long-distance furniture moves on the N1 and N3 corridors with GPS and portal updates"
               ratio="wide"
             />
           </div>
@@ -289,8 +288,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
           <div className="order-2 min-w-0 lg:order-1">
             <ContentImage
-              src={marketingImages.houseKeys.src}
-              alt={marketingImages.houseKeys.alt}
+              src="/images/home/home-insurance-git-cover.jpg"
+              alt="Goods-in-transit and all-risk cover with clear limits on your written OTMA quote"
               ratio="photo"
             />
           </div>
@@ -332,8 +331,8 @@ export default function HomePage() {
           </div>
           <div className="min-w-0">
             <ContentImage
-              src={marketingImages.warehouse.src}
-              alt={marketingImages.warehouse.alt}
+              src="/images/home/home-about-joanique-alberton.jpg"
+              alt="On The Move Again at Joanique Eco Park, Alberton — owner-led removals base"
               ratio="wide"
             />
           </div>

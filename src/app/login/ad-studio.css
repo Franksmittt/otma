@@ -1,0 +1,1208 @@
+/* Pro Ultra Ad Studio — scoped to .otma-ad-studio-root only */
+.otma-ad-studio-root {
+  --charcoal: #1d1d1f;
+  --charcoal-dark: #000000;
+  --charcoal-glass: rgba(29, 29, 31, 0.72);
+  /* Site turquoise — sRGB so html-to-image / canvas always paints (avoid oklch here) */
+  --tech-blue: #0284c7;
+  --tech-blue-bright: #0ea5e9;
+  --tech-blue-hover: #0369a1;
+  --tech-blue-alpha-40: rgba(2, 132, 199, 0.45);
+  --tech-blue-alpha-90: rgba(2, 132, 199, 0.92);
+  --white: #f5f5f7;
+  --ui-bg: #1c1c1e;
+
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--charcoal-dark);
+  color: var(--white);
+  margin: 0;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  -webkit-font-smoothing: antialiased;
+}
+
+.otma-ad-studio-root .ad-studio-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.otma-ad-studio-root .ad-studio-header h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 10px;
+}
+
+.otma-ad-studio-root .ad-studio-header h1 span {
+  color: transparent;
+  background: linear-gradient(90deg, var(--tech-blue-bright), var(--tech-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.otma-ad-studio-root .ad-studio-header p {
+  color: #86868b;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.otma-ad-studio-root .studio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .otma-ad-studio-root .studio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .otma-ad-studio-root .studio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1536px) {
+  .otma-ad-studio-root .studio-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.otma-ad-studio-root .card-wrapper {
+  background-color: var(--ui-bg);
+  padding: 20px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.otma-ad-studio-root .card-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.otma-ad-studio-root .template-name {
+  font-size: 0.85rem;
+  color: #86868b;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.otma-ad-studio-root .controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.otma-ad-studio-root input[type="file"] {
+  display: none;
+}
+
+.otma-ad-studio-root .upload-btn,
+.otma-ad-studio-root .download-btn {
+  appearance: none;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  box-sizing: border-box;
+  letter-spacing: -0.2px;
+}
+
+.otma-ad-studio-root .upload-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.otma-ad-studio-root .upload-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.otma-ad-studio-root .download-btn {
+  background-color: var(--tech-blue);
+  color: var(--white);
+}
+
+.otma-ad-studio-root .download-btn:hover {
+  background-color: var(--tech-blue-hover);
+  box-shadow: 0 4px 15px var(--tech-blue-alpha-40);
+}
+
+.otma-ad-studio-root .ad-container {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  position: relative;
+  background-color: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  /* Size container so cqmin / cqh match the 9:16 frame — consistent spacing in every template */
+  container-type: size;
+  --ad-s: clamp(5px, 1.65cqmin, 11px);
+  --ad-m: clamp(6px, 2.15cqmin, 14px);
+  --ad-l: clamp(7px, 2.75cqmin, 16px);
+  --ad-stack: clamp(3px, 1.1cqmin, 9px);
+  --ad-stack-md: clamp(4px, 1.55cqmin, 11px);
+  --ad-read-shadow: 0 1px 2px rgba(0, 0, 0, 0.92), 0 2px 14px rgba(0, 0, 0, 0.5);
+  /* Web-safe stack + one headline size + one sub size (screenshots / html-to-image) */
+  --ad-font-safe: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Strong px floors so previews stay readable on narrow phones; cqmin scales up in wider cards */
+  --ad-head: clamp(22px, 6.5cqmin, 34px);
+  --ad-sub: clamp(17px, 4.6cqmin, 24px);
+  font-family: var(--ad-font-safe);
+}
+
+.otma-ad-studio-root .ad-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  background-color: #111;
+}
+
+.otma-ad-studio-root .ad-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Photo templates (not solid-card 23): keep type legible on busy imagery */
+.otma-ad-studio-root .ad-container:not(.layout-23) .brand,
+.otma-ad-studio-root .ad-container:not(.layout-23) .tagline,
+.otma-ad-studio-root .ad-container:not(.layout-23) .cta-phone {
+  text-shadow: var(--ad-read-shadow);
+}
+
+.otma-ad-studio-root .brand,
+.otma-ad-studio-root .tagline,
+.otma-ad-studio-root .cta-phone,
+.otma-ad-studio-root .ad-site-footer {
+  margin: 0;
+  text-wrap: balance;
+}
+
+.otma-ad-studio-root .brand {
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.otma-ad-studio-root .brand span {
+  color: var(--tech-blue);
+}
+
+.otma-ad-studio-root .tagline {
+  color: var(--white);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.otma-ad-studio-root .cta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.otma-ad-studio-root .cta-phone {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* Bottom-centre site URL — plain type, no chip (shadow for legibility on imagery) */
+.otma-ad-studio-root .ad-site-footer {
+  position: absolute;
+  left: 50%;
+  bottom: var(--ad-m);
+  transform: translateX(-50%);
+  z-index: 4;
+  max-width: min(100% - 2 * var(--ad-m), 96%);
+  padding: 0 var(--ad-m);
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: var(--ad-sub);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--white);
+  text-shadow: var(--ad-read-shadow);
+}
+
+/* One headline size + one sub size across all in-frame ad copy */
+.otma-ad-studio-root .ad-container :is(.tagline, .streaming-headline, .floating-headline, .inv3-headline) {
+  font-size: var(--ad-head);
+  line-height: 1.12;
+}
+
+.otma-ad-studio-root
+  .ad-container
+  :is(
+    .brand,
+    .cta-wrap,
+    .streaming-brand-text,
+    .streaming-pill,
+    .streaming-sub,
+    .floating-brand-text,
+    .floating-sub,
+    .floating-pill,
+    .floating-fine,
+    .inv3-brand-text,
+    .inv3-sub,
+    .inv3-price,
+    .inv3-pill,
+    .inv3-fine
+  ) {
+  font-size: var(--ad-sub);
+}
+
+/* Layouts 1–20 */
+.otma-ad-studio-root .layout-1 .ad-content {
+  justify-content: flex-end;
+  padding: var(--ad-l);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82), transparent 58%);
+}
+
+.otma-ad-studio-root .layout-1 .brand {
+  margin-bottom: var(--ad-stack);
+}
+
+.otma-ad-studio-root .layout-1 .tagline {
+  margin-bottom: var(--ad-m);
+}
+
+.otma-ad-studio-root .layout-1 .cta-wrap {
+  color: var(--tech-blue);
+}
+
+.otma-ad-studio-root .layout-2 .ad-content {
+  justify-content: flex-start;
+  padding: var(--ad-m);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 45%);
+}
+
+.otma-ad-studio-root .layout-2 .tagline {
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-2 .brand {
+  opacity: 0.8;
+}
+
+.otma-ad-studio-root .layout-2 .cta-wrap {
+  margin-top: auto;
+  padding: var(--ad-s) var(--ad-m);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  color: var(--white);
+  align-self: flex-start;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.otma-ad-studio-root .layout-3 .ad-content {
+  justify-content: center;
+  align-items: center;
+  padding: var(--ad-s);
+}
+
+.otma-ad-studio-root .layout-3 .text-box {
+  background: var(--charcoal-glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: var(--ad-m);
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 85%;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.otma-ad-studio-root .layout-3 .brand {
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-3 .tagline {
+  margin-bottom: var(--ad-m);
+  color: var(--tech-blue);
+}
+
+.otma-ad-studio-root .layout-4 .ad-content {
+  flex-direction: row;
+}
+
+.otma-ad-studio-root .layout-4 .text-box {
+  width: 45%;
+  background: var(--tech-blue-alpha-90);
+  backdrop-filter: blur(10px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--ad-m);
+  box-sizing: border-box;
+}
+
+.otma-ad-studio-root .layout-4 .brand {
+  color: var(--charcoal-dark);
+  margin-bottom: auto;
+}
+
+.otma-ad-studio-root .layout-4 .brand span {
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-4 .tagline {
+  color: var(--white);
+  margin-bottom: var(--ad-l);
+  text-align: left;
+}
+
+.otma-ad-studio-root .layout-4 .cta-wrap {
+  color: var(--white);
+  background: var(--charcoal-dark);
+  padding: var(--ad-s);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.otma-ad-studio-root .layout-5 .ad-content {
+  justify-content: flex-end;
+}
+
+.otma-ad-studio-root .layout-5 .text-box {
+  background: var(--charcoal-dark);
+  padding: var(--ad-m);
+  border-top: 4px solid var(--tech-blue);
+}
+
+.otma-ad-studio-root .layout-5 .brand {
+  margin-bottom: var(--ad-stack);
+}
+
+.otma-ad-studio-root .layout-5 .tagline {
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-5 .cta-wrap {
+  color: var(--tech-blue);
+}
+
+.otma-ad-studio-root .layout-6 .ad-content {
+  padding: var(--ad-m);
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 30%, rgba(0, 0, 0, 0.9));
+}
+
+.otma-ad-studio-root .layout-6 .cta-wrap {
+  background: var(--tech-blue);
+  color: var(--white);
+  padding: var(--ad-s);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: flex-end;
+  margin-bottom: var(--ad-m);
+  box-shadow: 0 8px 20px var(--tech-blue-alpha-40);
+}
+
+.otma-ad-studio-root .layout-6 .tagline {
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-7 .ad-content {
+  justify-content: flex-end;
+}
+
+.otma-ad-studio-root .layout-7 .text-box {
+  background: rgba(29, 29, 31, 0.85);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--ad-m);
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.otma-ad-studio-root .layout-7 .brand {
+  color: var(--tech-blue);
+  margin-bottom: var(--ad-stack);
+}
+
+.otma-ad-studio-root .layout-7 .tagline {
+  margin-bottom: auto;
+}
+
+.otma-ad-studio-root .layout-7 .cta-wrap {
+  align-self: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.otma-ad-studio-root .layout-8 .ad-content {
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  text-align: center;
+  padding: var(--ad-m);
+}
+
+.otma-ad-studio-root .layout-8 .tagline {
+  letter-spacing: -0.02em;
+  margin: var(--ad-m) 0;
+}
+
+.otma-ad-studio-root .layout-8 .brand {
+  letter-spacing: -0.02em;
+}
+
+.otma-ad-studio-root .layout-8 .cta-wrap {
+  border: 1px solid var(--tech-blue);
+  padding: var(--ad-s) var(--ad-m);
+  color: var(--tech-blue);
+  border-radius: 12px;
+}
+
+.otma-ad-studio-root .layout-9 .ad-content {
+  justify-content: flex-end;
+}
+
+.otma-ad-studio-root .layout-9 .text-box {
+  background: var(--white);
+  padding: var(--ad-l) var(--ad-m) var(--ad-m);
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.otma-ad-studio-root .layout-9 .brand {
+  color: var(--charcoal);
+  margin-bottom: var(--ad-stack);
+}
+
+.otma-ad-studio-root .layout-9 .tagline {
+  color: var(--charcoal-dark);
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-9 .cta-wrap {
+  color: var(--white);
+  background: var(--tech-blue);
+  padding: var(--ad-s) var(--ad-m);
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.otma-ad-studio-root .layout-10 .ad-content {
+  padding: var(--ad-m);
+  justify-content: center;
+}
+
+.otma-ad-studio-root .layout-10 .tagline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--white);
+  margin-left: -4cqi;
+  margin-bottom: var(--ad-m);
+}
+
+.otma-ad-studio-root .layout-10 .text-box {
+  background: var(--tech-blue);
+  padding: var(--ad-s);
+  transform: rotate(-2deg);
+  width: 85%;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+.otma-ad-studio-root .layout-10 .brand {
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-10 .cta-wrap {
+  position: absolute;
+  bottom: var(--ad-m);
+  right: var(--ad-m);
+  text-align: right;
+  text-shadow: 0 2px 4px #000;
+}
+
+.otma-ad-studio-root .layout-11 .ad-content {
+  padding: var(--ad-s);
+}
+
+.otma-ad-studio-root .layout-11 .frame {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--ad-m);
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.otma-ad-studio-root .layout-11 .brand {
+  text-align: center;
+}
+
+.otma-ad-studio-root .layout-11 .tagline {
+  text-align: center;
+}
+
+.otma-ad-studio-root .layout-11 .cta-wrap {
+  text-align: center;
+  color: var(--tech-blue);
+}
+
+.otma-ad-studio-root .layout-12 .ad-content {
+  padding: var(--ad-m);
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.otma-ad-studio-root .layout-12 .tagline {
+  background: var(--tech-blue);
+  color: var(--white);
+  padding: var(--ad-s) var(--ad-m);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  display: inline;
+  line-height: 1.5;
+  margin-bottom: var(--ad-m);
+  border-radius: 4px;
+}
+
+.otma-ad-studio-root .layout-12 .brand {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: var(--ad-stack);
+}
+
+.otma-ad-studio-root .layout-12 .cta-wrap {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  padding: var(--ad-s) var(--ad-m);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.otma-ad-studio-root .layout-13 .ad-content {
+  justify-content: space-between;
+}
+
+.otma-ad-studio-root .layout-13 .bar {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--ad-m);
+}
+
+.otma-ad-studio-root .layout-13 .cta-wrap {
+  color: var(--tech-blue);
+  text-align: right;
+}
+
+.otma-ad-studio-root .layout-13 .tagline {
+  align-self: center;
+  text-align: center;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+  padding: 0 var(--ad-s);
+}
+
+.otma-ad-studio-root .layout-14 .ad-content {
+  justify-content: flex-end;
+  padding: var(--ad-l);
+  background: linear-gradient(to top, var(--tech-blue-alpha-90), transparent 75%);
+}
+
+.otma-ad-studio-root .layout-14 .tagline {
+  color: var(--white);
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-14 .brand {
+  color: var(--white);
+  margin-bottom: var(--ad-stack);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.otma-ad-studio-root .layout-14 .cta-wrap {
+  color: var(--charcoal-dark);
+}
+
+.otma-ad-studio-root .layout-15 .ad-content {
+  flex-direction: row;
+}
+
+.otma-ad-studio-root .layout-15 .vertical-bar {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: var(--ad-m) var(--ad-s);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.otma-ad-studio-root .layout-15 .brand {
+  transform: rotate(180deg);
+}
+
+.otma-ad-studio-root .layout-15 .cta-wrap {
+  color: var(--tech-blue);
+  transform: rotate(180deg);
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+}
+
+.otma-ad-studio-root .layout-15 .tagline {
+  align-self: flex-end;
+  padding: var(--ad-m);
+  text-align: right;
+  text-shadow: 0 2px 10px #000;
+  margin-left: auto;
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-16 .ad-content {
+  padding: var(--ad-m);
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.otma-ad-studio-root .layout-16 .brand {
+  margin-bottom: var(--ad-l);
+  color: var(--tech-blue);
+  text-align: center;
+}
+
+.otma-ad-studio-root .layout-16 .tagline {
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: var(--ad-l);
+}
+
+.otma-ad-studio-root .layout-16 .cta-wrap {
+  text-align: center;
+}
+
+.otma-ad-studio-root .layout-17 .ad-content {
+  padding: var(--ad-s);
+  justify-content: flex-end;
+}
+
+.otma-ad-studio-root .layout-17 .card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  padding: var(--ad-m);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.otma-ad-studio-root .layout-17 .brand {
+  color: var(--charcoal);
+  margin-bottom: var(--ad-stack);
+}
+
+.otma-ad-studio-root .layout-17 .tagline {
+  color: var(--charcoal-dark);
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-17 .cta-wrap {
+  color: var(--white);
+  background: var(--tech-blue);
+  padding: var(--ad-s);
+  text-align: center;
+  border-radius: 12px;
+}
+
+.otma-ad-studio-root .layout-18 .ad-content {
+  justify-content: flex-start;
+  padding: var(--ad-m);
+  background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.9), transparent 80%);
+}
+
+.otma-ad-studio-root .layout-18 .brand {
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-18 .tagline {
+  margin-bottom: var(--ad-stack-md);
+  text-align: left;
+}
+
+.otma-ad-studio-root .layout-18 .cta-wrap {
+  color: var(--tech-blue);
+}
+
+.otma-ad-studio-root .layout-19 .ad-content {
+  justify-content: flex-end;
+}
+
+.otma-ad-studio-root .layout-19 .text-box {
+  background: var(--tech-blue);
+  padding: var(--ad-m);
+  color: var(--white);
+  border-radius: 24px 24px 0 0;
+}
+
+.otma-ad-studio-root .layout-19 .brand {
+  color: var(--white);
+  margin-bottom: var(--ad-stack);
+  opacity: 0.9;
+}
+
+.otma-ad-studio-root .layout-19 .brand span {
+  color: var(--charcoal-dark);
+}
+
+.otma-ad-studio-root .layout-19 .tagline {
+  color: var(--white);
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-19 .cta-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: var(--ad-s) var(--ad-m);
+  display: inline-flex;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.otma-ad-studio-root .layout-20 .ad-content {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.otma-ad-studio-root .layout-20 .image-mask {
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent 30%);
+}
+
+.otma-ad-studio-root .layout-20 .text-box {
+  height: 40%;
+  background: var(--charcoal-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--ad-m);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.otma-ad-studio-root .layout-20 .brand {
+  margin-bottom: var(--ad-stack-md);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.otma-ad-studio-root .layout-20 .tagline {
+  margin-bottom: var(--ad-m);
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-20 .cta-wrap {
+  color: var(--tech-blue);
+}
+
+/* ----- Template 21: compact bottom strip (~32%), URL only (no social icons) ----- */
+.otma-ad-studio-root .layout-21 .ad-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: var(--ad-s);
+}
+
+.otma-ad-studio-root .layout-21 .streaming-card {
+  display: flex;
+  width: 100%;
+  height: 32%;
+  min-height: 28%;
+  max-height: 36%;
+  flex: 0 0 32%;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-radius: 16px;
+  overflow: hidden;
+  /* Even inset on 9:16 — cqmin tracks the smaller of width/height so it doesn’t squash sides */
+  padding: clamp(12px, 2.6cqmin, 22px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    105deg,
+    rgba(8, 120, 145, 0.72) 0%,
+    rgba(4, 60, 78, 0.62) 26%,
+    rgba(0, 0, 0, 0.88) 62%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.48);
+}
+
+.otma-ad-studio-root .layout-21 .streaming-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 1.8cqmin, 16px);
+  margin-top: auto;
+  margin-bottom: clamp(6px, 1cqmin, 12px);
+  flex: 0 0 auto;
+}
+
+.otma-ad-studio-root .layout-21 .streaming-brand {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 1.2cqh;
+}
+
+.otma-ad-studio-root .layout-21 .streaming-logo-mark {
+  flex-shrink: 0;
+  width: clamp(18px, 3.4cqmin, 26px);
+  height: clamp(18px, 3.4cqmin, 26px);
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-21 .streaming-brand-text {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-21 .streaming-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: clamp(4px, 0.55cqmin, 8px) clamp(10px, 1.6cqmin, 16px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #000;
+  background: var(--tech-blue-bright);
+}
+
+.otma-ad-studio-root .layout-21 .streaming-mid {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+  padding: 0;
+}
+
+.otma-ad-studio-root .layout-21 .streaming-headline {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-align: left;
+}
+
+.otma-ad-studio-root .layout-21 .streaming-sub {
+  margin: clamp(6px, 1cqmin, 12px) 0 0;
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+  color: var(--tech-blue-bright);
+  text-align: left;
+}
+
+/* ----- Template 22: centered floating modal, vertical teal → black, stacked center ----- */
+.otma-ad-studio-root .layout-22 .ad-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ad-m);
+  box-sizing: border-box;
+}
+
+.otma-ad-studio-root .layout-22 .floating-modal-outer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.otma-ad-studio-root .layout-22 .floating-modal-card {
+  display: flex;
+  width: calc(100% - 2.5cqi);
+  height: calc(100% - 2.5cqi);
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--ad-l) var(--ad-m) var(--ad-m);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 155, 180, 0.82) 0%,
+    rgba(5, 75, 92, 0.78) 30%,
+    rgba(0, 0, 0, 0.9) 72%,
+    rgba(0, 0, 0, 0.97) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.48);
+}
+
+.otma-ad-studio-root .layout-22 .floating-brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ad-stack);
+  margin-bottom: var(--ad-m);
+}
+
+.otma-ad-studio-root .layout-22 .floating-logo-mark {
+  flex-shrink: 0;
+  width: 5.5cqi;
+  height: 5.5cqi;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-22 .floating-brand-text {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-22 .floating-headline {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-22 .floating-sub {
+  margin: var(--ad-m) 0 0;
+  max-width: 90%;
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--tech-blue-bright);
+}
+
+.otma-ad-studio-root .layout-22 .floating-pill {
+  margin-top: var(--ad-m);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: var(--ad-s) var(--ad-m);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #000;
+  background: var(--tech-blue-bright);
+}
+
+.otma-ad-studio-root .layout-22 .floating-icons {
+  display: flex;
+  margin-top: var(--ad-m);
+  align-items: center;
+  justify-content: center;
+  gap: var(--ad-stack-md);
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-22 .floating-soc-svg {
+  flex-shrink: 0;
+  width: 4.9cqi;
+  height: 4.9cqi;
+}
+
+.otma-ad-studio-root .layout-22 .floating-fine {
+  margin-top: auto;
+  padding-top: var(--ad-m);
+  max-width: 94%;
+  font-weight: 400;
+  line-height: 1.38;
+  color: rgba(161, 161, 170, 0.68);
+}
+
+/* ----- Template 23: solid canvas, opaque gradient modal; sub → headline → price → CTA → icons → URL → fine ----- */
+.otma-ad-studio-root .layout-23 .ad-bg {
+  background-color: #0a0a0c !important;
+  background-image: none !important;
+}
+
+.otma-ad-studio-root .layout-23 .ad-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ad-m);
+  box-sizing: border-box;
+}
+
+.otma-ad-studio-root .layout-23 .inv3-outer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.otma-ad-studio-root .layout-23 .inv3-card {
+  display: flex;
+  width: calc(100% - 2.5cqi);
+  height: calc(100% - 2.5cqi);
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--ad-l) var(--ad-m) var(--ad-m);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #1a5c5e 0%,
+    #124040 12%,
+    #0a2226 28%,
+    #050708 55%,
+    #020203 100%
+  );
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ad-stack);
+  margin-bottom: var(--ad-stack-md);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-logo-mark {
+  flex-shrink: 0;
+  width: 5.2cqi;
+  height: 5.2cqi;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-brand-text {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-sub {
+  margin: 0;
+  max-width: 92%;
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--tech-blue-bright);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-headline {
+  margin: var(--ad-m) 0 0;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-price {
+  margin: var(--ad-stack-md) 0 0;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-price-em {
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.otma-ad-studio-root .layout-23 .inv3-pill {
+  margin-top: var(--ad-stack-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: var(--ad-s) var(--ad-m);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #000;
+  background: var(--tech-blue-bright);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-icons {
+  display: flex;
+  margin-top: var(--ad-m);
+  align-items: center;
+  justify-content: center;
+  gap: var(--ad-stack-md);
+  color: var(--white);
+}
+
+.otma-ad-studio-root .layout-23 .inv3-soc-svg {
+  flex-shrink: 0;
+  width: 4.8cqi;
+  height: 4.8cqi;
+}
+
+.otma-ad-studio-root .layout-23 .inv3-fine {
+  margin-top: auto;
+  padding-top: var(--ad-stack-md);
+  max-width: 96%;
+  font-weight: 400;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  color: rgba(120, 120, 128, 0.75);
+  text-wrap: balance;
+}
