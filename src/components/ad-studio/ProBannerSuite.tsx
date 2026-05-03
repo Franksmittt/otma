@@ -124,12 +124,9 @@ export function ProBannerSuite() {
                 <span className="live-dot" aria-hidden />
                 No Black-Box Logistics
               </div>
-              <h1>
-                Live GPS
-                <br />
-                Monitored
-                <br />
-                Moves
+              <h1 className="bs-v1-title">
+                <span className="bs-v1-title-l1">GPS-mapped</span>
+                <span className="bs-v1-title-l2">every move</span>
               </h1>
               <div className="tech-box">
                 <div className="tech-row">
@@ -464,7 +461,7 @@ export function ProBannerSuite() {
             </div>
           </div>
 
-          {/* V8: Editorial — photo slab + rail + typographic stack */}
+          {/* V8: Editorial (photo slab + rail + typographic stack) */}
           <div
             id="otma-banner-v8"
             className={`bs-banner bs-v8${activeTab === 8 ? " active" : ""}`}

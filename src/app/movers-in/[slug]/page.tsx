@@ -42,7 +42,7 @@ export default async function SuburbPage({ params }: Props) {
       </PageBand>
 
       <PageBand tone="dark" contentMax="4xl">
-        <div className="max-w-2xl">
+        <div className="min-w-0 w-full max-w-2xl">
           <ContentImage
             src={marketingImages.deliveryVan.src}
             alt={`${marketingImages.deliveryVan.alt}, ${suburb.name} area`}
@@ -69,7 +69,7 @@ export default async function SuburbPage({ params }: Props) {
       </PageBand>
 
       <PageBand tone="soft" contentMax="4xl">
-        <section className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10" aria-labelledby={`why-${slug}`}>
+        <section className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start lg:gap-10" aria-labelledby={`why-${slug}`}>
           <div className="min-w-0">
             <h2 id={`why-${slug}`} className="text-xl font-semibold text-zinc-900">
               Why choose us in {suburb.name}

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const FAQ: ServiceFaqItem[] = [
   {
     q: "Where is my furniture stored?",
-    a: `Goods are stored at ${SITE.address.street}, ${SITE.address.locality}, as part of our daily operations—not an anonymous third-party shed you cannot visit.`,
+    a: `Goods are stored at ${SITE.address.street}, ${SITE.address.locality}, as part of our daily operations, not an anonymous third-party shed you cannot visit.`,
   },
   {
     q: "Can I access my goods while they are in storage?",
@@ -58,7 +58,7 @@ const CARDS = [
     title: "Joanique Eco Park base",
     body: (
       <>
-        Storage sits alongside our removals workflow at Joanique Eco Park in Verwoerdpark—modern, secure, and part of the
+        Storage sits alongside our removals workflow at Joanique Eco Park in Verwoerdpark: modern, secure, and part of the
         same team you meet on the truck.
       </>
     ),
@@ -77,7 +77,7 @@ const CARDS = [
     body: (
       <>
         If you are staging Gauteng to Cape Town or KZN, storage can sit between legs of the journey. We plan dates and
-        monitoring around your milestones—not generic warehouse windows.
+        monitoring around your milestones, not generic warehouse windows.
       </>
     ),
   },
@@ -94,7 +94,7 @@ export default function StoragePage() {
           intro={
             <p>
               Need a gap between moving out and moving in? Renovating? We offer secure short- and long-term storage at our
-              Joanique Eco Park base in Verwoerdpark, Alberton—run by the same crew who load your truck.
+              Joanique Eco Park base in Verwoerdpark, Alberton, run by the same crew who load your truck.
             </p>
           }
         />
@@ -106,11 +106,11 @@ export default function StoragePage() {
 
       <PageBand tone="light" aria-labelledby="storage-where">
         <h2 id="storage-where" className="text-2xl font-semibold tracking-tight text-zinc-900">
-          Where we store—and why it matters
+          Where we store, and why it matters
         </h2>
         <p className="mt-8 text-base leading-[1.7] text-zinc-700 sm:mt-10">
           Your goods are stored at {SITE.address.street}, {SITE.address.locality}. Our facility is modern, secure, and part
-          of our daily operations, so your belongings sit where we already run removals—not in a disconnected warehouse
+          of our daily operations, so your belongings sit where we already run removals, not in a disconnected warehouse
           brand you have never met.
         </p>
         <ServiceFeatureCardGrid surface="light" cards={CARDS} />
@@ -154,7 +154,7 @@ export default function StoragePage() {
         <ServiceCtaBand
           id="storage-cta"
           heading="Book storage with your move"
-          description="Tell us your dates, access needs, and how long the gap might be—we will respond with a clear plan."
+          description="Tell us your dates, access needs, and how long the gap might be; we will respond with a clear plan."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/services/house-removals", label: "House & office removals" }}
         />

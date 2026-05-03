@@ -12,7 +12,7 @@ type Props = {
   subtitle?: string;
   /** Optional line under subtitle (e.g. link to full FAQ) */
   afterSubtitle?: ReactNode;
-  /** Accordion card surface — use `dark` on dark `PageBand`s */
+  /** Accordion card surface; use `dark` on dark `PageBand`s */
   accordionSurface?: "light" | "dark";
 };
 
@@ -29,7 +29,7 @@ export function ServiceFaqSection({
 }: Props) {
   return (
     <>
-      <div className="text-center">
+      <div className="min-w-0 text-center">
         <h2 id={id} className="text-2xl font-semibold tracking-tight text-zinc-900">
           {title}
         </h2>

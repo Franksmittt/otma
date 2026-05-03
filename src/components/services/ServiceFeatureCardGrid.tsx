@@ -30,7 +30,7 @@ type ServiceFeatureCardGridProps = {
 
 export function ServiceFeatureCardGrid({ surface = "light", cards }: ServiceFeatureCardGridProps) {
   return (
-    <div className="mt-8 grid grid-cols-1 gap-8 sm:mt-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-10">
+    <div className="mt-8 grid min-w-0 grid-cols-1 gap-8 sm:mt-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-10">
       {cards.map((c) => (
         <div key={c.title} className={cardShell[surface]}>
           <h3 className={h3Shell[surface]}>{c.title}</h3>

@@ -46,7 +46,7 @@ export default function FAQPage() {
         <ServiceCtaBand
           id="faq-cta"
           heading="Still unsure?"
-          description="Start a quote or reach us by phone and WhatsApp—we reply honestly."
+          description="Start a quote or reach us by phone and WhatsApp; we reply honestly."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/contact", label: "Contact us" }}
         />

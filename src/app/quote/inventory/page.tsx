@@ -11,7 +11,16 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE.url}/quote/inventory` },
 };
 
-export default function QuoteInventoryPage() {
+type InventorySearchParams = Promise<{ origin?: string; dest?: string; date?: string }>;
+
+export default async function QuoteInventoryPage({ searchParams }: { searchParams: InventorySearchParams }) {
+  const sp = await searchParams;
+  const backQs = new URLSearchParams();
+  if (sp.origin) backQs.set("origin", sp.origin);
+  if (sp.dest) backQs.set("dest", sp.dest);
+  if (sp.date) backQs.set("date", sp.date);
+  const backHref = backQs.toString() ? `/quote?${backQs.toString()}` : "/quote";
+
   return (
     <>
       <PageBand tone="soft" contentMax="2xl">
@@ -34,7 +43,7 @@ export default function QuoteInventoryPage() {
 
       <PageBand tone="light" contentMax="2xl">
         <section aria-labelledby="quote-inv-form">
-          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
+          <div className="min-w-0 rounded-xl border border-zinc-200 bg-zinc-50 p-6">
             <p className="text-sm font-medium text-sky-700">Step 2 of 3</p>
             <h2 id="quote-inv-form" className="mt-1 text-lg font-semibold text-zinc-900">
               Your inventory
@@ -44,6 +53,9 @@ export default function QuoteInventoryPage() {
               give you an accurate quote. We will confirm details when we call you.
             </p>
             <form action="/quote/contact" method="get" className="mt-4">
+              <input type="hidden" name="origin" value={sp.origin ?? ""} />
+              <input type="hidden" name="dest" value={sp.dest ?? ""} />
+              <input type="hidden" name="date" value={sp.date ?? ""} />
               <textarea
                 name="inventory"
                 rows={6}
@@ -58,7 +70,7 @@ export default function QuoteInventoryPage() {
                   Next: Contact details
                 </button>
                 <Link
-                  href="/quote"
+                  href={backHref}
                   className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 font-medium text-zinc-900 hover:border-sky-600"
                 >
                   Back
@@ -68,7 +80,7 @@ export default function QuoteInventoryPage() {
           </div>
         </section>
         <div className="mt-6">
-          <Link href="/quote" className="text-sky-700 hover:underline">
+          <Link href={backHref} className="text-sky-700 hover:underline">
             ← Back to move details
           </Link>
         </div>

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const FAQ: ServiceFaqItem[] = [
   {
     q: "How long can I keep crates on hire?",
-    a: "Rental windows depend on your move dates and return logistics. We quote a transparent hire period with collection after delivery—no hidden weekly surprises.",
+    a: "Rental windows depend on your move dates and return logistics. We quote a transparent hire period with collection after delivery, with no hidden weekly surprises.",
   },
   {
     q: "Are plastic crates better than cardboard for fragile items?",
@@ -34,7 +34,7 @@ const FAQ: ServiceFaqItem[] = [
   },
   {
     q: "What happens if a crate is damaged?",
-    a: "Fair wear is expected; serious damage or loss is handled per your rental agreement on the quote. We explain charges plainly before you sign—not after return.",
+    a: "Fair wear is expected; serious damage or loss is handled per your rental agreement on the quote. We explain charges plainly before you sign, not after return.",
   },
 ];
 
@@ -51,7 +51,7 @@ const CARDS = [
     body: (
       <>
         See the comparison table below for protection, setup, environment, and loading. If you are unsure which rooms should
-        use crates first, ask—we will steer you to the biggest wins.
+        use crates first, ask; we will steer you to the biggest wins.
       </>
     ),
   },
@@ -60,7 +60,7 @@ const CARDS = [
     body: (
       <>
         We deliver crates for your pack, you use them for the move, and we collect after delivery. One transparent rental fee
-        with no hidden costs—ideal for fragile items and electronics.
+        with no hidden costs, ideal for fragile items and electronics.
       </>
     ),
   },
@@ -78,7 +78,7 @@ const CARDS = [
     body: (
       <>
         Standardised external dimensions mean straighter stacks and fewer voids in the load. That can translate to fewer
-        trips         on borderline inventories—ask when you quote.
+        trips on borderline inventories; ask when you quote.
       </>
     ),
   },
@@ -159,7 +159,7 @@ export default function CrateRentalsPage() {
         <ServiceHighlightBand
           kicker="On the truck"
           heading="Standardised footprints, calmer loads"
-          body="Crews stack faster when every box is the same width. Fewer odd voids means less shifting in transit—and less re-tightening straps at midnight on the N3."
+          body="Crews stack faster when every box is the same width. Fewer odd voids means less shifting in transit and less re-tightening straps at midnight on the N3."
           tiles={[
             {
               src: marketingImages.protectiveWrapping.src,
@@ -185,7 +185,7 @@ export default function CrateRentalsPage() {
         <ServiceCtaBand
           id="crate-cta"
           heading="Add crates to your quote"
-          description="Tell us rooms, rough volume, and dates—we size hire and delivery."
+          description="Tell us rooms, rough volume, and dates; we size hire and delivery."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/services/packing", label: "Packing & unpacking" }}
         />

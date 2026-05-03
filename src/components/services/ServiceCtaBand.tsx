@@ -21,13 +21,13 @@ const btnSecondary =
 
 export function ServiceCtaBand({ id, heading, description, primary, secondary }: ServiceCtaBandProps) {
   return (
-    <div className="rounded-xl border border-sky-200/80 bg-sky-50/90 px-5 py-6 shadow-sm sm:px-6 sm:py-7">
-      <div className="mx-auto max-w-xl text-center">
+    <div className="w-full min-w-0 rounded-xl border border-sky-200/80 bg-sky-50/90 px-5 py-6 shadow-sm sm:px-6 sm:py-7">
+      <div className="mx-auto w-full min-w-0 max-w-xl text-center">
         <h2 id={id} className="text-lg font-semibold tracking-tight text-zinc-900 sm:text-xl">
           {heading}
         </h2>
         {description ? (
-          <p className="mt-1.5 text-sm leading-snug text-zinc-700">{description}</p>
+          <div className="mt-1.5 text-sm leading-snug text-zinc-700">{description}</div>
         ) : null}
         <div className="mt-5 flex flex-col items-stretch justify-center gap-2 sm:flex-row sm:justify-center sm:gap-3">
           {isNonNextHref(primary.href) ? (

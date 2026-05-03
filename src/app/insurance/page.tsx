@@ -43,7 +43,7 @@ export default function InsurancePage() {
       </PageBand>
 
       <PageBand tone="dark" contentMax="4xl">
-        <div className="max-w-2xl">
+        <div className="min-w-0 w-full max-w-2xl">
           <ContentImage
             src={marketingImages.houseKeys.src}
             alt={marketingImages.houseKeys.alt}

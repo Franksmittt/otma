@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
       <BlogPostingJsonLd title={post.title} description={post.description} date={post.date} slug={slug} />
 
       <PageBand tone="soft" contentMax="3xl">
-        <header>
+        <header className="min-w-0">
           <Link href="/blog" className="text-sm font-medium text-sky-700 hover:underline">
             ← Blog
           </Link>
@@ -103,11 +103,11 @@ export default async function BlogPostPage({ params }: Props) {
       ) : null}
 
       <PageBand tone="light" contentMax="3xl">
-        <div className="space-y-10">
+        <div className="min-w-0 space-y-10">
           {post.sections.map((section, i) => (
-            <section key={i}>
+            <section key={i} className="min-w-0">
               <h2 className="text-xl font-semibold text-zinc-900">{section.heading}</h2>
-              <div className="mt-3 space-y-3 text-zinc-700 [&>p]:leading-relaxed">
+              <div className="mt-3 min-w-0 space-y-3 break-words text-zinc-700 [&>p]:leading-relaxed">
                 {section.body.split("\n\n").map((para, j) => (
                   <p key={j}>{para}</p>
                 ))}

@@ -33,7 +33,7 @@ export default function BlogPage() {
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-400">From the crew</p>
         <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">Guides you can use on move week</h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400">
-          Every article is written to match how we actually work—monitored trucks, clear insurance language, and suburb
+          Every article is written to match how we actually work: monitored trucks, clear insurance language, and suburb
           realities on the East Rand.
         </p>
       </PageBand>
@@ -47,7 +47,7 @@ export default function BlogPage() {
                 <article className="min-w-0">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white transition hover:border-sky-600 hover:shadow-md sm:flex-row sm:items-stretch"
+                    className="group flex min-w-0 flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white transition hover:border-sky-600 hover:shadow-md sm:flex-row sm:items-stretch"
                   >
                     {cover ? <ContentImageThumb src={cover.src} alt={cover.alt} /> : null}
                     <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6">
@@ -72,7 +72,7 @@ export default function BlogPage() {
         <ServiceCtaBand
           id="blog-cta"
           heading="Prefer we plan the move for you?"
-          description="Get a monitored quote—local Alberton or long-distance."
+          description="Get a monitored quote: local Alberton or long-distance."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/contact", label: "Contact us" }}
         />

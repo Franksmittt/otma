@@ -34,7 +34,7 @@ const FAQ: ServiceFaqItem[] = [
   },
   {
     q: "Is packing included in a house removal quote?",
-    a: "Packing can be quoted separately or bundled with your move. Tell us what you want packed, what you will handle yourself, and whether you need unpacking at the destination—we will mirror that in writing.",
+    a: "Packing can be quoted separately or bundled with your move. Tell us what you want packed, what you will handle yourself, and whether you need unpacking at the destination; we will mirror that in writing.",
   },
 ];
 
@@ -72,7 +72,7 @@ const CARDS = [
     body: (
       <>
         Choose a tier that fits your budget and timeline. Need beds made and kitchens usable the first night? Say so when
-        you quote—we schedule crew time accordingly.
+        you quote; we schedule crew time accordingly.
       </>
     ),
   },
@@ -107,7 +107,7 @@ export default function PackingPage() {
           intro={
             <p>
               We handle the packing phase so your goods are protected and loading is efficient. We also offer clear unpacking
-              tiers so you know exactly what to expect at the other end—no vague &quot;we might help a bit&quot; language.
+              tiers so you know exactly what to expect at the other end, with no vague &quot;we might help a bit&quot; language.
             </p>
           }
         />
@@ -141,7 +141,7 @@ export default function PackingPage() {
         <ServiceHighlightBand
           kicker="At delivery"
           heading="Unpacking that matches how you move in"
-          body="Some clients want essentials only; others want cupboards sorted. We agree the scope in writing, bring the right crew time, and leave you with clear recycling piles—not mystery half-empty boxes in every room."
+          body="Some clients want essentials only; others want cupboards sorted. We agree the scope in writing, bring the right crew time, and leave you with clear recycling piles, not mystery half-empty boxes in every room."
           tiles={[
             {
               src: marketingImages.livingRoomFurniture.src,

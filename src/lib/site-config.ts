@@ -39,37 +39,12 @@ export const SUBURBS = [
   { slug: "alberante", name: "Alberante", character: "Quiet; high-income" },
 ] as const;
 
-/**
- * Top-level header nav — keep sparse: logo → Home; Services mega; Quote + Track primary;
- * About / blog / support live under Company.
- */
-export const NAV = [
-  {
-    label: "Services",
-    children: [
-      { href: "/services", label: "All services" },
-      { href: "/services/house-removals", label: "House & office removals" },
-      { href: "/services/long-distance", label: "Long-distance moves" },
-      { href: "/services/packing", label: "Packing & unpacking" },
-      { href: "/services/cleaning", label: "Post-move cleaning" },
-      { href: "/services/storage", label: "Storage" },
-      { href: "/services/crate-rentals", label: "Crate rentals" },
-      { href: "/services/pet-relocation", label: "Pet relocation" },
-      { href: "/services/vehicle-transport", label: "Vehicle transport" },
-    ],
-  },
-  { href: "/quote", label: "Quote" },
-  { href: "/track", label: "Track" },
-  {
-    label: "Company",
-    children: [
-      { href: "/about", label: "About" },
-      { href: "/blog", label: "Blog" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/contact", label: "Contact" },
-      { href: "/partners", label: "Partners" },
-    ],
-  },
+/** Primary header navigation (desktop bar + mobile drawer). */
+export const HEADER_NAV = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact Us" },
 ] as const;
 
 /** Flat list for footer / simple menus (backward compatible) */

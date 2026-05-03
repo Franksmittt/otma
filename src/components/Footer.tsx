@@ -67,7 +67,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Hours — compact */}
+          {/* Hours (compact) */}
           <div className="min-w-0">
             <FooterHeading>Hours</FooterHeading>
             <ul className="mt-2 space-y-1 text-xs text-zinc-500">
@@ -94,7 +94,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Areas — one dense strip */}
+        {/* Areas: one dense strip */}
         <div className="mt-4 border-t border-zinc-800/90 pt-3">
           <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-zinc-600">Areas we serve</p>
           <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5 text-[0.7rem]">

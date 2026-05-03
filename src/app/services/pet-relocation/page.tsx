@@ -26,7 +26,7 @@ const FAQ: ServiceFaqItem[] = [
   },
   {
     q: "What should I prepare before pet travel day?",
-    a: "We recommend vet checks, microchip details, crate familiarisation, and travel documents where applicable. Ask for our Stress-Less Pet Relocation Checklist when you book—it covers the practical fifteen steps we see work best.",
+    a: "We recommend vet checks, microchip details, crate familiarisation, and travel documents where applicable. Ask for our Stress-Less Pet Relocation Checklist when you book; it covers the practical fifteen steps we see work best.",
   },
   {
     q: "Do you offer climate-controlled options?",
@@ -51,7 +51,7 @@ const CARDS = [
     body: (
       <>
         Your pets are not an afterthought bolted onto a truck quote. We sequence feeding, toilet breaks, and handover
-        contacts so the day feels controlled—not rushed.
+        contacts so the day feels controlled, not rushed.
       </>
     ),
   },
@@ -77,7 +77,7 @@ const CARDS = [
     title: "Long-distance aware",
     body: (
       <>
-        Highway days need different pacing than a local hop. We factor heat, rest, and documentation realistically—then
+        Highway days need different pacing than a local hop. We factor heat, rest, and documentation realistically, then
         tell you the honest timeline instead of a best-case fairy tale.
       </>
     ),
@@ -129,7 +129,7 @@ export default function PetRelocationPage() {
         <ServiceHighlightBand
           kicker="Checklist"
           heading="Stress-less pet move mindset"
-          body="We recommend vet checks, ID and microchip readiness, crate familiarisation, travel documents if needed, and a quiet handover on the day. Ask for our full Stress-Less Pet Relocation Checklist when you book—fifteen practical steps we see work in the real world."
+          body="We recommend vet checks, ID and microchip readiness, crate familiarisation, travel documents if needed, and a quiet handover on the day. Ask for our full Stress-Less Pet Relocation Checklist when you book: fifteen practical steps we see work in the real world."
           tiles={[
             {
               src: marketingImages.apartmentInterior.src,

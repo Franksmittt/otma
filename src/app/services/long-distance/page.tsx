@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const FAQ: ServiceFaqItem[] = [
   {
     q: "How long does Gauteng to Cape Town or Durban usually take?",
-    a: "Transit windows depend on load size, consolidation, and route. We quote honest ranges—not best-case only—and update milestones in the client portal while you are on the N1 or N3.",
+    a: "Transit windows depend on load size, consolidation, and route. We quote honest ranges, not best-case only, and update milestones in the client portal while you are on the N1 or N3.",
   },
   {
     q: "Are long-distance trucks monitored like local moves?",
@@ -30,11 +30,11 @@ const FAQ: ServiceFaqItem[] = [
   },
   {
     q: "How do you protect furniture on highway vibration?",
-    a: "Mattresses, polished wood, and glass get padding choices matched to distance—not the same wrap as a five-kilometre hop. Crews are briefed on strapping checks at scheduled stops.",
+    a: "Mattresses, polished wood, and glass get padding choices matched to distance, not the same wrap as a five-kilometre hop. Crews are briefed on strapping checks at scheduled stops.",
   },
   {
     q: "Is insurance different for long-distance?",
-    a: "We explain Goods-in-Transit and All-Risk limits on your quote for every distance. Long haul does not mean vague cover—you get the same plain-language numbers, adjusted to declared value.",
+    a: "We explain Goods-in-Transit and All-Risk limits on your quote for every distance. Long haul does not mean vague cover: you get the same plain-language numbers, adjusted to declared value.",
   },
 ];
 
@@ -72,7 +72,7 @@ const CARDS = [
     title: "Insurance in plain numbers",
     body: (
       <>
-        Goods-in-Transit and All-Risk limits are published and confirmed on your quote—especially important when high-value
+        Goods-in-Transit and All-Risk limits are published and confirmed on your quote, especially important when high-value
         loads spend longer on the road.
       </>
     ),
@@ -99,7 +99,7 @@ export default function LongDistancePage() {
           intro={
             <p>
               Moving from Gauteng to Cape Town, Durban, or anywhere else in South Africa? We run regular long-haul routes
-              with monitored trucks and clear transit times so you know when your goods are expected—not &quot;sometime next
+              with monitored trucks and clear transit times so you know when your goods are expected, not &quot;sometime next
               week&quot; silence.
             </p>
           }
@@ -133,7 +133,7 @@ export default function LongDistancePage() {
         <ServiceHighlightBand
           kicker="On the highway"
           heading="Protection and pacing for interprovincial legs"
-          body="We pad for vibration, strap for braking, and schedule crew rest legally. You get updates that reflect real traffic and weather—not a script that pretends every day is identical."
+          body="We pad for vibration, strap for braking, and schedule crew rest legally. You get updates that reflect real traffic and weather, not a script that pretends every day is identical."
           tiles={[
             {
               src: marketingImages.protectiveWrapping.src,
@@ -159,7 +159,7 @@ export default function LongDistancePage() {
         <ServiceCtaBand
           id="long-cta"
           heading="Quote your long-distance move"
-          description="Share both addresses, move date, and inventory notes—we reply with monitored options."
+          description="Share both addresses, move date, and inventory notes; we reply with monitored options."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/insurance", label: "Insurance & GIT" }}
         />

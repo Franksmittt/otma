@@ -26,7 +26,7 @@ const FAQ: ServiceFaqItem[] = [
   },
   {
     q: "How is my vehicle tracked in transit?",
-    a: "Carriers are fitted with tracking and monitoring consistent with our furniture fleet philosophy—visibility and verification, not a black-box transporter.",
+    a: "Carriers are fitted with tracking and monitoring consistent with our furniture fleet philosophy: visibility and verification, not a black-box transporter.",
   },
   {
     q: "Can vehicle transport be combined with a house move?",
@@ -34,7 +34,7 @@ const FAQ: ServiceFaqItem[] = [
   },
   {
     q: "Do you handle non-running or classic cars?",
-    a: "Tell us the condition, ground clearance, and any winch needs when you quote. We confirm what is practical and safe before we commit—no last-minute surprises on collection day.",
+    a: "Tell us the condition, ground clearance, and any winch needs when you quote. We confirm what is practical and safe before we commit, with no last-minute surprises on collection day.",
   },
 ];
 
@@ -50,7 +50,7 @@ const CARDS = [
     title: "Motor vehicles",
     body: (
       <>
-        Daily drivers through to performance vehicles—quoted with realistic loading angles, clearance, and tie-down plans.
+        Daily drivers through to performance vehicles, quoted with realistic loading angles, clearance, and tie-down plans.
         Photos and notes travel with the job file.
       </>
     ),
@@ -77,7 +77,7 @@ const CARDS = [
     title: "Security mindset",
     body: (
       <>
-        Same peace of mind as furniture removals: monitored movement, vetted handovers, and clear escalation contacts—not
+        Same peace of mind as furniture removals: monitored movement, vetted handovers, and clear escalation contacts, not
         anonymous one-line SMS updates.
       </>
     ),
@@ -129,7 +129,7 @@ export default function VehicleTransportPage() {
         <ServiceHighlightBand
           kicker="In transit"
           heading="Verification, not guesswork"
-          body="Insurance and monitoring both play a role. We publish what is tracked, who holds keys at handover, and how to reach the desk if something looks off mid-route—same transparency culture as our furniture fleet."
+          body="Insurance and monitoring both play a role. We publish what is tracked, who holds keys at handover, and how to reach the desk if something looks off mid-route, with the same transparency culture as our furniture fleet."
           tiles={[
             {
               src: marketingImages.deliveryVan.src,
@@ -155,7 +155,7 @@ export default function VehicleTransportPage() {
         <ServiceCtaBand
           id="vehicle-cta"
           heading="Quote vehicle transport with your move"
-          description="Share make, model, running condition, and both addresses—we respond with a clear plan."
+          description="Share make, model, running condition, and both addresses; we respond with a clear plan."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/services/house-removals", label: "House & office removals" }}
         />

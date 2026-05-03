@@ -41,10 +41,10 @@ export function PageBand({
 }: PageBandProps) {
   return (
     <section
-      className={`${TONE_SHELL[tone]} ${className}`.trim()}
+      className={`${TONE_SHELL[tone]} min-w-0 ${className}`.trim()}
       aria-labelledby={ariaLabelledBy}
     >
-      <div className={`${INNER_PAD} ${MAX_W[contentMax]} ${innerClassName}`.trim()}>{children}</div>
+      <div className={`${INNER_PAD} ${MAX_W[contentMax]} min-w-0 ${innerClassName}`.trim()}>{children}</div>
     </section>
   );
 }

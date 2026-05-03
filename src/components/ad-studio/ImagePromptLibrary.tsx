@@ -36,7 +36,7 @@ export function ImagePromptLibrary() {
       <details className="prompt-library-details" open>
         <summary>How these prompts are built (methodology)</summary>
         <p className="prompt-library-hint">
-          Aesthetic anchors, character design, tape/physics rules, lighting, and faux camera metadata — same system for
+          Aesthetic anchors, character design, tape/physics rules, lighting, and faux camera metadata, same system for
           every batch.
         </p>
         <pre className="prompt-library-pre" tabIndex={0}>

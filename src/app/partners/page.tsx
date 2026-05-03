@@ -57,7 +57,7 @@ export default function PartnersPage() {
           </p>
           <a
             href={`mailto:${SITE.email}?subject=Partner%20enquiry`}
-            className="mt-4 inline-block font-medium text-sky-700 hover:underline"
+            className="mt-4 inline-block max-w-full break-all font-medium text-sky-700 hover:underline sm:break-words"
           >
             {SITE.email}
           </a>
@@ -74,7 +74,7 @@ export default function PartnersPage() {
         <ServiceCtaBand
           id="partners-cta"
           heading="Refer a client moving this month?"
-          description="Send them to a monitored quote—we credit your partner ID."
+          description="Send them to a monitored quote; we credit your partner ID."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: `mailto:${SITE.email}?subject=Partner%20referral`, label: "Email a lead" }}
         />

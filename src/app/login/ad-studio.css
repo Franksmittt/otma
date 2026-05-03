@@ -1,6 +1,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 
-/* Pro Ultra Ad Studio — scoped to .otma-ad-studio-root only */
+/* Pro Ultra Ad Studio: scoped to .otma-ad-studio-root only */
 .otma-ad-studio-root {
   --bs-sp-1: 8px;
   --bs-sp-2: 16px;
@@ -253,11 +253,12 @@
 .otma-ad-studio-root .bs-v1-live-row {
   display: flex;
   align-items: center;
+  font-family: var(--font-banner-montserrat, "Montserrat"), ui-sans-serif, system-ui, sans-serif;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 13px;
   color: var(--otma-turq);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.12em;
 }
 
 .otma-ad-studio-root .bs-v1 .live-dot {
@@ -270,12 +271,32 @@
   box-shadow: 0 0 15px var(--otma-turq);
 }
 
-.otma-ad-studio-root .bs-v1 h1 {
-  font-size: 64px;
-  color: var(--otma-white);
-  margin: 10px 0;
+.otma-ad-studio-root .bs-v1-title {
+  margin: 10px 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-family: var(--font-banner-montserrat, "Montserrat"), ui-sans-serif, system-ui, sans-serif;
   line-height: 1;
-  text-transform: uppercase;
+}
+
+.otma-ad-studio-root .bs-v1-title-l1 {
+  display: block;
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #f4f6f8;
+  line-height: 0.98;
+}
+
+.otma-ad-studio-root .bs-v1-title-l2 {
+  display: block;
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--otma-turq);
+  line-height: 0.98;
 }
 
 .otma-ad-studio-root .bs-v1 .tech-box {
@@ -386,7 +407,7 @@
   line-height: 1.2;
 }
 
-/* V2 footer: split rail — copy block + full-height WhatsApp column */
+/* V2 footer: split rail (copy block + full-height WhatsApp column) */
 .otma-ad-studio-root .bs-v2 .contact-card {
   grid-column: 1 / -1;
   flex-direction: row;
@@ -1152,7 +1173,7 @@
   margin-top: 5px;
 }
 
-/* V8 — editorial revamp: photo slab + vertical ribbon + rail + stack */
+/* V8: editorial revamp (photo slab + vertical ribbon + rail + stack) */
 .otma-ad-studio-root .bs-v8 {
   display: flex;
   flex-direction: column;

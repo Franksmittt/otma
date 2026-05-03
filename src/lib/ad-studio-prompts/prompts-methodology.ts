@@ -1,4 +1,4 @@
-/** How OTMA image prompts are written — kept in-repo for Ad Studio backup. */
+/** How OTMA image prompts are written; kept in-repo for Ad Studio backup. */
 export const AD_STUDIO_PROMPT_METHODOLOGY = `Because realism always beats artificial drama when you are building commercial assets, the entire goal behind these prompts is to actively fight the AI's natural urge to make everything look like a glossy, CGI corporate stock photo.
 
 To get that gritty, authentic "documentary" look, you have to constrain the AI tightly. Here is the exact thought process and formula used to build those prompts, so you can replicate it for any other scenario.

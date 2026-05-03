@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const FAQ: ServiceFaqItem[] = [
   {
     q: "Can cleaning be booked on the same day as the move?",
-    a: "Often yes, depending on crew availability and property access. Tell us your handover deadline when you quote—we confirm a realistic sequence so you are not stuck between keys and inspection.",
+    a: "Often yes, depending on crew availability and property access. Tell us your handover deadline when you quote; we confirm a realistic sequence so you are not stuck between keys and inspection.",
   },
   {
     q: "Is post-move cleaning only for rentals?",
@@ -51,7 +51,7 @@ const CARDS = [
     body: (
       <>
         Bundling cleaning with your move simplifies schedules and helps you meet deposit or transfer conditions. One team
-        culture from truck to mop bucket—fewer strangers with conflicting timing.
+        culture from truck to mop bucket, with fewer strangers with conflicting timing.
       </>
     ),
   },
@@ -77,7 +77,7 @@ const CARDS = [
     title: "Honest scope",
     body: (
       <>
-        We quote rooms and extras explicitly—oven interiors, garage sweep, windows where agreed—so you are not surprised
+        We quote rooms and extras explicitly (oven interiors, garage sweep, windows where agreed) so you are not surprised
         by a generic &quot;deep clean&quot; promise that means different things to different people.
       </>
     ),
@@ -94,7 +94,7 @@ export default function CleaningPage() {
           title="Post-move cleaning"
           intro={
             <p>
-              Moving out often means leaving the property clean for handover—for your landlord or the new owner. We offer
+              Moving out often means leaving the property clean for handover, for your landlord or the new owner. We offer
               post-move cleaning so you can focus on settling in instead of scrubbing.
             </p>
           }
@@ -127,8 +127,8 @@ export default function CleaningPage() {
       <PageBand tone="dark">
         <ServiceHighlightBand
           kicker="Sequence"
-          heading="Move out, then shine—without chaos"
-          body="We agree whether cleaners trail the last truck, start in cleared bedrooms first, or tackle kitchens while the crew secures the garage. The point is one plan—not two crews arguing about who needs the keys."
+          heading="Move out, then shine, without chaos"
+          body="We agree whether cleaners trail the last truck, start in cleared bedrooms first, or tackle kitchens while the crew secures the garage. The point is one plan, not two crews arguing about who needs the keys."
           tiles={[
             {
               src: marketingImages.livingRoomFurniture.src,
@@ -154,7 +154,7 @@ export default function CleaningPage() {
         <ServiceCtaBand
           id="cleaning-cta"
           heading="Book cleaning with your removal"
-          description="Tell us property type, rooms, and handover deadline—we quote scope clearly."
+          description="Tell us property type, rooms, and handover deadline; we quote scope clearly."
           primary={{ href: "/quote", label: "Get a free quote" }}
           secondary={{ href: "/services/house-removals", label: "House & office removals" }}
         />

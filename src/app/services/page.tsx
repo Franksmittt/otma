@@ -51,7 +51,7 @@ export default function ServicesPage() {
           Every page follows the same layout rhythm as our house removals guide: masthead, imagery, detail sections, and a
           clear quote path, so you always know where you are.
         </p>
-        <ul className="mt-10 grid list-none gap-4 p-0 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:gap-6">
+        <ul className="mt-10 grid min-w-0 list-none gap-4 p-0 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:gap-6">
           {SERVICE_LINKS.map(({ href, title, desc, imageSrc, imageAlt }) => (
             <li key={href}>
               <Link
@@ -94,7 +94,7 @@ export default function ServicesPage() {
             },
             {
               src: "/images/home/home-about-joanique-alberton.jpg",
-              alt: "On The Move Again at Joanique Eco Park, Alberton — owner-led removals base",
+              alt: "On The Move Again at Joanique Eco Park, Alberton, owner-led removals base",
             },
           ]}
         />

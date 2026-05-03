@@ -46,7 +46,7 @@ export function ServiceFaqAccordion({
   }, []);
 
   return (
-    <div className="mt-8 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 md:gap-x-6 md:gap-y-5">
+    <div className="mt-8 grid min-w-0 grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 md:gap-x-6 md:gap-y-5">
       {items.map((item, index) => {
         const panelId = `${baseId}-panel-${index}`;
         const buttonId = `${baseId}-btn-${index}`;

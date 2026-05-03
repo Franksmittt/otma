@@ -43,19 +43,19 @@ export default function HomePage() {
     <div className="min-w-0">
       <HomeFaqJsonLd />
 
-      {/* 1. Hero — 3-slide carousel (client) */}
+      {/* 1. Hero: 3-slide carousel (client) */}
       <HomeHeroCarousel />
 
-      {/* 2. Trust strip — light band */}
+      {/* 2. Trust strip (light band) */}
       <section
         className="border-y border-zinc-200 bg-zinc-50 py-9 sm:py-11"
         aria-labelledby="home-trust-heading"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
           <h2 id="home-trust-heading" className="sr-only">
             Trust and credentials
           </h2>
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+          <div className="grid min-w-0 grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
             <div className="text-center">
               <p className="text-2xl font-bold text-zinc-900">
                 {SITE.rating.value}/{SITE.rating.best}
@@ -85,16 +85,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. How it works — dark band */}
+      {/* 3. How it works (dark band) */}
       <section className="bg-zinc-950 py-12 text-zinc-100 sm:py-16" aria-labelledby="home-steps-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
           <h2 id="home-steps-heading" className="text-center text-2xl font-bold text-white sm:text-3xl">
             How your move works
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-400">
             Clear steps from first call to keys in hand. No black-box logistics.
           </p>
-          <ol className="mt-10 grid gap-8 md:grid-cols-3">
+          <ol className="mt-10 grid min-w-0 gap-8 md:grid-cols-3">
             <li className="rounded-2xl border border-zinc-700 bg-zinc-900/80 p-6 shadow-lg shadow-black/20">
               <span className="text-sm font-bold text-sky-400">01</span>
               <h3 className="mt-2 text-lg font-semibold text-white">Quote & plan</h3>
@@ -132,10 +132,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Monitoring — light */}
+      {/* 4. Monitoring (light) */}
       <section className="border-y border-zinc-200 bg-white py-12 sm:py-16" aria-labelledby="home-monitor-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-8 md:grid-cols-2 md:items-center md:gap-10 lg:gap-12">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
+          <div className="grid min-w-0 gap-8 md:grid-cols-2 md:items-center md:gap-10 lg:gap-12">
             <div className="min-w-0">
               <h2 id="home-monitor-heading" className="text-2xl font-bold text-zinc-900 sm:text-3xl">
                 Smile! You&apos;re on Camera!
@@ -178,9 +178,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. All services — dark */}
+      {/* 5. All services (dark) */}
       <section className="relative bg-zinc-900 py-16 text-zinc-100 sm:py-20 md:py-24" aria-labelledby="home-services-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
           <p className="text-center text-sm font-semibold uppercase tracking-wider text-sky-400">What we do</p>
           <h2 id="home-services-heading" className="mt-2 text-center text-2xl font-bold text-white sm:text-3xl md:text-4xl">
             Full-service relocation
@@ -204,7 +204,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative flex flex-col rounded-2xl border border-zinc-700 bg-zinc-950/60 p-6 shadow-lg shadow-black/30 transition duration-200 hover:border-sky-500 hover:bg-zinc-900 sm:p-6"
+                className="group relative flex min-w-0 flex-col rounded-2xl border border-zinc-700 bg-zinc-950/60 p-6 shadow-lg shadow-black/30 transition duration-200 hover:border-sky-500 hover:bg-zinc-900 sm:p-6"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/20 text-sky-300 transition duration-200 group-hover:bg-sky-500 group-hover:text-zinc-950">
                   <ServiceCardIcon href={item.href} />
@@ -235,9 +235,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Real homes — light (image spans same width as What we do 4-card row: max-w-6xl inner) */}
+      {/* 6. Real homes (light; image spans same width as What we do 4-card row: max-w-6xl inner) */}
       <section className="border-t border-zinc-200 bg-zinc-50 py-12 sm:py-16" aria-labelledby="home-homes-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
           <h2 id="home-homes-heading" className="mx-auto max-w-4xl text-center text-xl font-bold text-zinc-900 sm:text-2xl">
             Real homes, real care
           </h2>
@@ -257,9 +257,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Long-distance — dark */}
+      {/* 7. Long-distance (dark) */}
       <section className="border-t border-zinc-800 bg-zinc-950 py-12 text-zinc-100 sm:py-16 md:py-20" aria-labelledby="home-ld-heading">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch lg:gap-14">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch lg:gap-14">
           <div className="min-w-0">
             <h2 id="home-ld-heading" className="text-2xl font-bold text-white sm:text-3xl">
               Gauteng to Cape Town, Durban, and beyond
@@ -289,9 +289,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. Insurance — light */}
+      {/* 8. Insurance (light) */}
       <section className="bg-white py-12 sm:py-16" aria-labelledby="home-insurance-heading">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
           <div className="order-2 min-w-0 lg:order-1 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
             <ContentImage
               src="/images/home/home-insurance-git-cover.jpg"
@@ -317,9 +317,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. About — dark */}
+      {/* 9. About (dark) */}
       <section className="border-t border-zinc-800 bg-zinc-900 py-12 text-zinc-100 sm:py-16" aria-labelledby="home-about-heading">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
           <div className="min-w-0">
             <h2 id="home-about-heading" className="text-2xl font-bold text-white sm:text-3xl">
               Owner-led, Alberton-based
@@ -340,7 +340,7 @@ export default function HomePage() {
           <div className="min-w-0 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
             <ContentImage
               src="/images/home/home-about-joanique-alberton.jpg"
-              alt="On The Move Again at Joanique Eco Park, Alberton — owner-led removals base"
+              alt="On The Move Again at Joanique Eco Park, Alberton, owner-led removals base"
               ratio="wide"
               fillRowHeight
               className="lg:min-h-0 lg:flex-1 lg:self-stretch"
@@ -349,17 +349,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. Service areas — light */}
+      {/* 10. Service areas (light) */}
       <section className="bg-zinc-100 py-12 sm:py-16" aria-labelledby="home-areas-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
           <h2 id="home-areas-heading" className="text-center text-2xl font-bold text-zinc-900 sm:text-3xl">
             Areas we know well
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-700">
-            Estate gates, HOA windows, and East Rand traffic patterns are part of how we plan your crew and truck—not
+            Estate gates, HOA windows, and East Rand traffic patterns are part of how we plan your crew and truck, not
             afterthoughts on moving day.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SUBURBS.map(({ slug, name, character }) => (
               <article
                 key={slug}
@@ -387,11 +387,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11. Blog — dark */}
+      {/* 11. Blog (dark) */}
       <section className="border-t border-zinc-800 bg-zinc-950 py-12 text-zinc-100 sm:py-16" aria-labelledby="home-blog-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
+          <div className="flex min-w-0 flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div className="min-w-0">
               <h2 id="home-blog-heading" className="text-2xl font-bold text-white sm:text-3xl">
                 From the blog
               </h2>
@@ -403,10 +403,10 @@ export default function HomePage() {
               All posts →
             </Link>
           </div>
-          <ul className="mt-10 grid gap-6 md:grid-cols-3">
+          <ul className="mt-10 grid min-w-0 gap-6 md:grid-cols-3">
             {RECENT_POSTS.map((post) => (
-              <li key={post.slug}>
-                <article className="flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
+              <li key={post.slug} className="min-w-0">
+                <article className="flex h-full min-w-0 flex-col rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
                   <time className="text-xs font-semibold uppercase tracking-wide text-sky-400" dateTime={post.date}>
                     {post.date}
                   </time>
@@ -426,7 +426,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. FAQ — same block as service pages */}
+      {/* 12. FAQ (same block as service pages) */}
       <PageBand tone="soft" contentMax="6xl" aria-labelledby="home-faq-heading">
         <ServiceFaqSection
           id="home-faq-heading"
@@ -443,9 +443,9 @@ export default function HomePage() {
         />
       </PageBand>
 
-      {/* 13. Partners — dark */}
+      {/* 13. Partners (dark) */}
       <section className="border-t border-zinc-800 bg-zinc-900 py-12 text-zinc-100 sm:py-16" aria-labelledby="home-partners-heading">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <div className="mx-auto min-w-0 max-w-4xl px-4 text-center sm:px-6">
           <h2 id="home-partners-heading" className="text-2xl font-bold text-white sm:text-3xl">
             Realtors & partners
           </h2>
@@ -462,22 +462,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 14. Contact strip — light */}
+      {/* 14. Contact strip (light) */}
       <section className="border-y border-zinc-200 bg-zinc-50 py-10 sm:py-12" aria-labelledby="home-contact-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto min-w-0 max-w-6xl px-4 sm:px-6">
           <h2 id="home-contact-heading" className="text-center text-xl font-bold text-zinc-900 sm:text-2xl">
             Visit, call, or WhatsApp
           </h2>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <div>
+          <div className="mt-8 grid min-w-0 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="min-w-0">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">Address</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-700">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-700 break-words">
                 {SITE.address.street}
                 <br />
                 {SITE.address.locality}, {SITE.address.postalCode}
               </p>
             </div>
-            <div>
+            <div className="min-w-0">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">Hours</h3>
               <ul className="mt-2 space-y-1 text-sm text-zinc-700">
                 {SITE.hours.map((h) => (
@@ -487,14 +487,14 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="min-w-0 sm:col-span-2 lg:col-span-1">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">Direct</h3>
               <p className="mt-2 text-sm text-zinc-700">
                 <a href={`tel:${SITE.phoneE164}`} className="font-semibold text-sky-700 hover:underline">
                   {SITE.phone}
                 </a>
                 <br />
-                <a href={`mailto:${SITE.email}`} className="font-semibold text-sky-700 hover:underline">
+                <a href={`mailto:${SITE.email}`} className="break-all font-semibold text-sky-700 hover:underline sm:break-words">
                   {SITE.email}
                 </a>
               </p>
@@ -506,16 +506,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 15. Final CTA — dark */}
+      {/* 15. Final CTA (dark) */}
       <section className="bg-zinc-950 py-12 text-zinc-100 sm:py-16 md:py-20" aria-labelledby="home-final-cta-heading">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <div className="mx-auto min-w-0 max-w-3xl px-4 text-center sm:px-6">
           <h2 id="home-final-cta-heading" className="text-xl font-bold text-white sm:text-2xl">
             Ready for a stress-free move?
           </h2>
           <p className="mt-3 text-zinc-400">
             Get a free quote. No hidden fees. Monitored from start to finish.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
+          <div className="mt-6 flex min-w-0 flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Link
               href="/quote"
               className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-sky-500 px-6 py-4 font-semibold text-zinc-950 hover:bg-sky-400 sm:px-8"
