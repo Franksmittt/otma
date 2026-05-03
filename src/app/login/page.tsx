@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import { LoginGate } from "@/components/ad-studio/LoginGate";
 import { ProAdStudio } from "@/components/ad-studio/ProAdStudio";
 import { SITE } from "@/lib/site-config";
 import "./ad-studio.css";
@@ -28,7 +29,9 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className={`${inter.variable} ${montserrat.variable}`}>
-      <ProAdStudio />
+      <LoginGate>
+        <ProAdStudio />
+      </LoginGate>
     </div>
   );
 }

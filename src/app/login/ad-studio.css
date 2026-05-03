@@ -42,6 +42,49 @@
   text-align: center;
   margin-bottom: 2rem;
   max-width: 42rem;
+  position: relative;
+}
+
+.otma-ad-studio-root .ad-studio-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.otma-ad-studio-root .ad-studio-header-top h1 {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.otma-ad-studio-root .ad-studio-lock-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #86868b;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.otma-ad-studio-root .ad-studio-lock-btn:hover {
+  color: var(--otma-turq);
+  border-color: rgba(0, 210, 255, 0.35);
+  background: rgba(0, 210, 255, 0.08);
+}
+
+.otma-ad-studio-root .ad-studio-lock-label {
+  font-family: var(--font-banner-inter, "Inter"), ui-sans-serif, system-ui, sans-serif;
 }
 
 .otma-ad-studio-root .ad-studio-header h1 {
@@ -49,7 +92,7 @@
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .otma-ad-studio-root .ad-studio-header h1 span {
