@@ -44,6 +44,7 @@ export const HEADER_NAV = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact Us" },
 ] as const;
 
@@ -52,6 +53,7 @@ export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
   { href: "/quote", label: "Get a Quote" },
   { href: "/track", label: "Track Your Move" },

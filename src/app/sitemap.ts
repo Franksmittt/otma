@@ -18,6 +18,7 @@ const STATIC_ROUTES: { path: string; priority?: number; changeFrequency?: "yearl
   { path: "/faq", priority: 0.85, changeFrequency: "monthly" },
   { path: "/privacy", priority: 0.5, changeFrequency: "yearly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/gallery", priority: 0.75, changeFrequency: "monthly" },
   { path: "/services/house-removals", priority: 0.85, changeFrequency: "monthly" },
   { path: "/services/long-distance", priority: 0.85, changeFrequency: "monthly" },
   { path: "/services/packing", priority: 0.8, changeFrequency: "monthly" },
