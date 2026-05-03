@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Avoid accidental commit of Facebook-export dumps at repo root
+/*_n.jpg
+
 # debug
 npm-debug.log*
 yarn-debug.log*
