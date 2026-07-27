@@ -33,11 +33,6 @@ function HeaderLogo() {
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const closeMenu = useCallback(() => {
     setOpen(false);
@@ -57,7 +52,7 @@ export function Header() {
   }, [open, closeMenu]);
 
   const mobileMenuPortal =
-    mounted && open
+    typeof document !== "undefined" && open
       ? createPortal(
           <>
             <div

@@ -97,8 +97,9 @@ export default function ContactPage() {
             <div className="min-w-0 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
               <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl">Send a message</h2>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-zinc-600 sm:text-base">
-                Tell us what you need: quote, general question, or help with tracking. We usually respond within one working
-                day; for urgent dates, phone or WhatsApp is fastest.
+                Tell us what you need: quote, general question, or help with tracking. You can also attach a few images if the
+                request needs context. We usually respond within one working day; for urgent dates, phone or WhatsApp is
+                fastest.
               </p>
               <div className="mt-8">
                 <ContactForm />
