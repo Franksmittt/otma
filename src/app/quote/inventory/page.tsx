@@ -50,7 +50,8 @@ export default async function QuoteInventoryPage({ searchParams }: { searchParam
             </h2>
             <p className="mt-2 text-sm text-zinc-700">
               List the main rooms and big items (beds, fridge, couch, etc.). We use this to recommend the right truck size and
-              give you an accurate quote. We will confirm details when we call you.
+              give you an accurate quote. In the next step you can also upload photos for tricky access, fragile items, or
+              unusually large pieces.
             </p>
             <form action="/quote/contact" method="get" className="mt-4">
               <input type="hidden" name="origin" value={sp.origin ?? ""} />
